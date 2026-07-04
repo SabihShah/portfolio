@@ -155,6 +155,16 @@
     certToggle.textContent = expanding ? "Show less" : "Show all 15 certifications";
   });
 
+  /* ---------------- Skills show all ---------------- */
+  const skillsToggle = document.getElementById("skills-toggle");
+  skillsToggle?.addEventListener("click", () => {
+    const extraItems = document.querySelectorAll(".skill-extra");
+    const expanding = skillsToggle.getAttribute("data-expanded") === "false";
+    extraItems.forEach((el) => el.classList.toggle("skill-hidden", !expanding));
+    skillsToggle.setAttribute("data-expanded", expanding);
+    skillsToggle.textContent = expanding ? "Show less" : "Show all skills";
+  });
+
   /* ---------------- Mouse-follow glow (desktop only, subtle) ---------------- */
   if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
     const glow = document.createElement("div");
