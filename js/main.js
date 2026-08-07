@@ -241,7 +241,7 @@
   }
 
   /* ---------------- Skill card tilt (subtle) ---------------- */
-  document.querySelectorAll(".project-card").forEach((card) => {
+  document.querySelectorAll(".project-card:not(.is-locked)").forEach((card) => {
     card.addEventListener("mousemove", (e) => {
       const rect = card.getBoundingClientRect();
       const x = (e.clientX - rect.left) / rect.width - 0.5;
@@ -250,6 +250,21 @@
     });
     card.addEventListener("mouseleave", () => {
       card.style.transform = "";
+    });
+  });
+
+  /* ---------------- Project category filter ---------------- */
+  const filterPills = document.querySelectorAll(".filter-pill");
+  const projectCards = document.querySelectorAll("#projects-grid .project-card");
+  filterPills.forEach((pill) => {
+    pill.addEventListener("click", () => {
+      filterPills.forEach((p) => p.classList.remove("active"));
+      pill.classList.add("active");
+      const filter = pill.getAttribute("data-filter");
+      projectCards.forEach((card) => {
+        const match = filter === "all" || card.getAttribute("data-category") === filter;
+        card.classList.toggle("filtered-out", !match);
+      });
     });
   });
 
