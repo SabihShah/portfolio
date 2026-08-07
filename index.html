@@ -1,1561 +1,751 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, viewport-fit=cover"
-    />
-    <title>Sabih Shah — AI &amp; Computer Vision Engineer</title>
-    <meta
-      name="description"
-      content="Sabih Shah is an AI Engineer specializing in Computer Vision and Deep Learning — building real-time detection, tracking, 3D reconstruction and pose-estimation systems."
-    />
-    <meta name="author" content="Sabih Shah" />
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Sabih Shah — AI &amp; Computer Vision Engineer</title>
+<meta name="description" content="Sabih Shah is an AI Engineer specializing in Computer Vision and Deep Learning — building real-time detection, tracking, 3D reconstruction and pose-estimation systems." />
+<meta name="author" content="Sabih Shah" />
 
-    <!-- Open Graph -->
-    <meta
-      property="og:title"
-      content="Sabih Shah — AI & Computer Vision Engineer"
-    />
-    <meta
-      property="og:description"
-      content="AI Engineer specializing in Computer Vision and Deep Learning. Explore projects in tracking, 3D reconstruction, pose estimation and OCR."
-    />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="assets/img/header/4.jpg" />
-    <meta name="twitter:card" content="summary_large_image" />
+<!-- Open Graph -->
+<meta property="og:title" content="Sabih Shah — AI & Computer Vision Engineer" />
+<meta property="og:description" content="AI Engineer specializing in Computer Vision and Deep Learning. Explore projects in tracking, 3D reconstruction, pose estimation and OCR." />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="assets/img/header/4.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
 
-    <!-- Favicon -->
-    <link
-      rel="icon"
-      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%2307080c'/%3E%3Cpath d='M20 30 L20 20 L30 20 M70 20 L80 20 L80 30 M80 70 L80 80 L70 80 M30 80 L20 80 L20 70' stroke='%2322d3ee' stroke-width='6' fill='none' stroke-linecap='round'/%3E%3Ccircle cx='50' cy='50' r='14' fill='%236366f1'/%3E%3C/svg%3E"
-    />
+<!-- Favicon -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%2307080c'/%3E%3Cpath d='M20 30 L20 20 L30 20 M70 20 L80 20 L80 30 M80 70 L80 80 L70 80 M30 80 L20 80 L20 70' stroke='%2322d3ee' stroke-width='6' fill='none' stroke-linecap='round'/%3E%3Ccircle cx='50' cy='50' r='14' fill='%236366f1'/%3E%3C/svg%3E" />
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
-      rel="stylesheet"
-    />
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
-    <link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="css/style.css" />
 
-    <!-- Structured data -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Sabih Shah",
-        "alternateName": "Muhammad Sabih-Ul-Hassan",
-        "jobTitle": "AI Engineer / Computer Vision Engineer",
-        "email": "sabihshah999@gmail.com",
-        "url": "https://github.com/SabihShah",
-        "sameAs": [
-          "https://github.com/SabihShah/",
-          "https://www.linkedin.com/in/muhammad-sabih-ul-hassan-39264615a/",
-          "https://www.instagram.com/i_sabihshah/"
-        ],
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Rawalpindi",
-          "addressCountry": "Pakistan"
-        }
-      }
-    </script>
-  </head>
-  <body>
-    <!-- Loader -->
-    <div id="loader">
-      <div class="loader-mark">
-        <div class="loader-frame">
-          <span></span><span></span><span></span><span></span>
-        </div>
-        INITIALIZING
+<!-- Structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Sabih Shah",
+  "alternateName": "Muhammad Sabih-Ul-Hassan",
+  "jobTitle": "AI Engineer / Computer Vision Engineer",
+  "email": "sabihshah999@gmail.com",
+  "url": "https://github.com/SabihShah",
+  "sameAs": [
+    "https://github.com/SabihShah/",
+    "https://www.linkedin.com/in/muhammad-sabih-ul-hassan-39264615a/",
+    "https://www.instagram.com/i_sabihshah/"
+  ],
+  "address": { "@type": "PostalAddress", "addressLocality": "Rawalpindi", "addressCountry": "Pakistan" }
+}
+</script>
+</head>
+<body>
+
+<!-- Loader -->
+<div id="loader">
+  <div class="loader-mark">
+    <div class="loader-frame"><span></span><span></span><span></span><span></span></div>
+    INITIALIZING
+  </div>
+</div>
+
+<div id="scroll-progress"></div>
+<canvas id="bg-canvas"></canvas>
+<div class="bg-mesh"></div>
+<div class="bg-grid"></div>
+
+<!-- ============ NAV ============ -->
+<header id="navbar">
+  <div class="container nav-inner">
+    <a href="#hero" class="logo"><span class="dot"></span>SABIH <b>SHAH</b></a>
+
+    <nav class="nav-links">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#work">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="nav-cta">
+      <a href="https://drive.google.com/file/d/1S2zQnntX26AkG8my5T9qSYAvAqmgpNwA/view?usp=sharing" target="_blank" rel="noopener" class="btn btn-ghost btn-sm resume-link">Resume</a>
+      <a href="#contact" class="btn btn-primary btn-sm">Let's talk</a>
+      <button class="burger" id="burger" aria-label="Toggle menu"><span></span></button>
+    </div>
+  </div>
+
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#experience">Experience</a>
+    <a href="#education">Education</a>
+    <a href="#certifications">Certifications</a>
+    <a href="#work">Projects</a>
+    <a href="#contact">Contact</a>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section id="hero" class="hero">
+  <div class="container hero-grid">
+    <div>
+      <div class="hero-kicker"><span class="bar"></span>RAWALPINDI, PAKISTAN · AVAILABLE FOR WORK</div>
+      <h1>Building machines<br>that <span class="grad">see</span> &amp; understand<br>the world.</h1>
+      <div class="hero-role">&gt; <span id="hero-role-text"></span><span class="cursor">&nbsp;</span></div>
+      <p class="lede">I'm Sabih — an AI Engineer specializing in Computer Vision and Deep Learning. I design and ship real-time detection, tracking, 3D reconstruction and pose-estimation systems, from research prototype to production.</p>
+      <div class="hero-ctas">
+        <a href="#work" class="btn btn-primary">View Projects</a>
+        <a href="https://drive.google.com/file/d/1S2zQnntX26AkG8my5T9qSYAvAqmgpNwA/view?usp=sharing" target="_blank" rel="noopener" class="btn btn-ghost resume-link">Download Resume</a>
+      </div>
+      <div class="hero-meta">
+        <div><span class="num">6</span><span class="lbl">Featured Projects</span></div>
+        <div><span class="num">15+</span><span class="lbl">Certifications</span></div>
+        <div><span class="num">3</span><span class="lbl">AI / CV Roles</span></div>
+        <div><span class="num">MS</span><span class="lbl">Robotics &amp; AI, NUST</span></div>
       </div>
     </div>
 
-    <div id="scroll-progress"></div>
-    <canvas id="bg-canvas"></canvas>
-    <div class="bg-mesh"></div>
-    <div class="bg-grid"></div>
+    <div class="hero-visual">
+      <div class="hero-portrait frame is-visible">
+        <div class="ring"></div>
+        <div class="photo-wrap">
+          <img src="assets/img/header/4.jpg" alt="Portrait of Sabih Shah" />
+          <div class="scanline"></div>
+        </div>
+        <div class="frame-corners big"><i></i><i></i><i></i><i></i></div>
+        <span class="tag tag-1">person: 0.99</span>
+        <span class="tag tag-2">cv-engineer</span>
+        <span class="tag tag-3">pytorch · opencv</span>
+      </div>
+    </div>
+  </div>
 
-    <!-- ============ NAV ============ -->
-    <header id="navbar">
-      <div class="container nav-inner">
-        <a href="#hero" class="logo"
-          ><span class="dot"></span>SABIH <b>SHAH</b></a
-        >
+  <div class="scroll-cue"><span>SCROLL</span><span class="line"></span></div>
+</section>
 
-        <nav class="nav-links">
-          <a href="#about">About</a>
-          <a href="#skills">Skills</a>
-          <a href="#experience">Experience</a>
-          <a href="#education">Education</a>
-          <a href="#certifications">Certifications</a>
-          <a href="#work">Projects</a>
-          <a href="#contact">Contact</a>
-        </nav>
+<!-- ============ ABOUT ============ -->
+<section id="about">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Biography</div>
+      <h2>A little about me</h2>
+    </div>
 
-        <div class="nav-cta">
-          <a
-            href="https://drive.google.com/file/d/1S2zQnntX26AkG8my5T9qSYAvAqmgpNwA/view?usp=sharing"
-            target="_blank"
-            rel="noopener"
-            class="btn btn-ghost btn-sm resume-link"
-            >Resume</a
-          >
-          <a href="#contact" class="btn btn-primary btn-sm">Let's talk</a>
-          <button class="burger" id="burger" aria-label="Toggle menu">
-            <span></span>
-          </button>
+    <div class="about-grid">
+      <div class="about-card reveal">
+        <div class="row"><span>Name</span><span>Muhammad Sabih-Ul-Hassan</span></div>
+        <div class="row"><span>Role</span><span>AI / Computer Vision Engineer</span></div>
+        <div class="row"><span>Location</span><span>Rawalpindi, Pakistan</span></div>
+        <div class="row"><span>Languages</span><span>English, Urdu, Punjabi</span></div>
+        <div class="row"><span>Nationality</span><span>Pakistani</span></div>
+        <div class="row"><span>Email</span><span><a href="mailto:sabihshah999@gmail.com">sabihshah999@gmail.com</a></span></div>
+        <div class="row"><span>Phone</span><span><a href="tel:+923484553674">(+92) 348 4553674</a></span></div>
+      </div>
+
+      <div class="about-text reveal">
+        <p>AI Engineer specializing in Computer Vision and Deep Learning, focused on solving complex real-world problems through data-driven solutions.</p>
+        <p>I build systems that turn pixels into decisions — from multi-object tracking and 3D reconstruction to pose estimation and OCR — carrying research ideas through to reliable, production-ready code. My background spans a Master's in Robotics &amp; Artificial Intelligence and hands-on lab and industry experience across surveillance, sports analytics and aerial robotics.</p>
+        <p>I enjoy collaborating with new people and teams around the world — new people bring new problems, and new problems are how I learn.</p>
+
+        <div class="socials">
+          <a class="social-btn" href="https://www.instagram.com/i_sabihshah/" target="_blank" rel="noopener" title="Instagram" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+          </a>
+          <a class="social-btn" href="https://www.linkedin.com/in/muhammad-sabih-ul-hassan-39264615a/" target="_blank" rel="noopener" title="LinkedIn" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6.5 9v9M6.5 5.5v.01M11 18V9m0 4c0-2.5 1.5-4 3.5-4S18 10.5 18 13v5"/></svg>
+          </a>
+          <a class="social-btn" href="https://github.com/SabihShah/" target="_blank" rel="noopener" title="GitHub" aria-label="GitHub">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>
+          </a>
+          <a class="social-btn copy-email" href="#" data-email="sabihshah999@gmail.com" title="Copy Email" aria-label="Copy email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container"><div class="divider"></div></div>
+
+<!-- ============ SKILLS ============ -->
+<section id="skills">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Toolkit</div>
+      <h2>Skills &amp; technologies</h2>
+      <p>Core tools I reach for across research, model development and deployment.</p>
+    </div>
+
+    <div class="skill-group-label reveal">Languages &amp; frameworks</div>
+    <div class="skills-grid" data-stagger>
+      <div class="skill-card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></svg></div>
+        <h4>Python</h4><p>Primary language</p>
+      </div>
+      <div class="skill-card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18M3 12h18"/></svg></div>
+        <h4>PyTorch</h4><p>Deep learning</p>
+      </div>
+      <div class="skill-card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 17V7l8-4 8 4v10l-8 4-8-4Z"/><path d="M4 7l8 4 8-4M12 11v10"/></svg></div>
+        <h4>TensorFlow</h4><p>Model training</p>
+      </div>
+      <div class="skill-card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 20V10M18 20V4M6 20v-6"/></svg></div>
+        <h4>C++</h4><p>Systems &amp; perf.</p>
+      </div>
+    </div>
+
+    <div class="skill-group-label reveal">Computer vision</div>
+    <div class="skills-grid" data-stagger>
+      <div class="skill-card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg></div>
+        <h4>OpenCV</h4><p>Image processing</p>
+      </div>
+      <div class="skill-card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg></div>
+        <h4>YOLO</h4><p>Object detection</p>
+      </div>
+      <div class="skill-card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h16v16H4z"/><path d="m4 15 4-4 3 3 5-6 4 4"/></svg></div>
+        <h4>DeepSORT</h4><p>Multi-object tracking</p>
+      </div>
+      <div class="skill-card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="m9 12 2 2 4-4"/></svg></div>
+        <h4>MediaPipe</h4><p>Pose estimation</p>
+      </div>
+      <div class="skill-card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 3v18M16 3v18M3 8h18M3 16h18"/></svg></div>
+        <h4>PaddleOCR</h4><p>Text recognition</p>
+      </div>
+      <div class="skill-card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><path d="M2 12h20M12 2v20"/></svg></div>
+        <h4>Image Processing</h4><p>Filtering &amp; analysis</p>
+      </div>
+
+      <!-- Extra CV skills — hidden by default, revealed via "Show all" -->
+      <div class="skill-card reveal skill-extra skill-hidden">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2 2 7l10 5 10-5-10-5Z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+        <h4>Open3D / PointNet++</h4><p>3D point clouds</p>
+      </div>
+      <div class="skill-card reveal skill-extra skill-hidden">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg></div>
+        <h4>3D Gaussian Splatting</h4><p>Neural rendering</p>
+      </div>
+      <div class="skill-card reveal skill-extra skill-hidden">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="6" cy="6" r="2"/><circle cx="18" cy="6" r="2"/><circle cx="12" cy="18" r="2"/><path d="M6 8v3l6 4M18 8v3l-6 4"/></svg></div>
+        <h4>NeRF / COLMAP</h4><p>3D reconstruction</p>
+      </div>
+      <div class="skill-card reveal skill-extra skill-hidden">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="3"/><path d="M12 5V3M12 21v-2M5 12H3M21 12h-2M7.5 7.5 6 6M18 18l-1.5-1.5M7.5 16.5 6 18M18 6l-1.5 1.5"/></svg></div>
+        <h4>Detectron2</h4><p>Instance segmentation</p>
+      </div>
+      <div class="skill-card reveal skill-extra skill-hidden">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg></div>
+        <h4>GStreamer</h4><p>Video pipelines</p>
+      </div>
+      <div class="skill-card reveal skill-extra skill-hidden">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="4" width="20" height="6" rx="1.5"/><rect x="2" y="14" width="20" height="6" rx="1.5"/><path d="M6 7h.01M6 17h.01"/></svg></div>
+        <h4>NVIDIA DeepStream</h4><p>Real-time video AI</p>
+      </div>
+      <div class="skill-card reveal skill-extra skill-hidden">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 8h10M7 12h10M7 16h6"/></svg></div>
+        <h4>Triton Inference Server</h4><p>Model serving</p>
+      </div>
+      <div class="skill-card reveal skill-extra skill-hidden">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8Z"/></svg></div>
+        <h4>TensorRT</h4><p>Inference optimization</p>
+      </div>
+      <div class="skill-card reveal skill-extra skill-hidden">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m17 3 4 4-4 4M21 7H9M7 21l-4-4 4-4M3 17h12"/></svg></div>
+        <h4>ONNX Runtime</h4><p>Cross-platform inference</p>
+      </div>
+      <div class="skill-card reveal skill-extra skill-hidden">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg></div>
+        <h4>OpenVINO</h4><p>Edge inference</p>
+      </div>
+      <div class="skill-card reveal skill-extra skill-hidden">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="5" y="7" width="14" height="10" rx="2"/><path d="M9 3v4M15 3v4M9 21v-4M15 21v-4"/><circle cx="9" cy="12" r="1"/><circle cx="15" cy="12" r="1"/></svg></div>
+        <h4>ROS</h4><p>Robotics integration</p>
+      </div>
+    </div>
+
+    <div class="skill-group-label reveal">Tools &amp; workflow</div>
+    <div class="skills-grid" data-stagger>
+      <div class="skill-card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="12" r="3"/><path d="M6 9v6M8.6 7.4 15.4 10.6M8.6 16.6 15.4 13.4"/></svg></div>
+        <h4>Git</h4><p>Version control</p>
+      </div>
+      <div class="skill-card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6v6H9z"/></svg></div>
+        <h4>CUDA</h4><p>GPU acceleration</p>
+      </div>
+      <div class="skill-card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/></svg></div>
+        <h4>NumPy / Pandas</h4><p>Data processing</p>
+      </div>
+      <div class="skill-card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+        <h4>MLOps</h4><p>Model lifecycle</p>
+      </div>
+
+      <!-- Extra tooling — hidden by default, revealed via "Show all" -->
+      <div class="skill-card reveal skill-extra skill-hidden">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2 2 7l10 5 10-5-10-5ZM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+        <h4>Docker</h4><p>Containerization</p>
+      </div>
+      <div class="skill-card reveal skill-extra skill-hidden">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="m7 9 3 3-3 3M13 15h4"/></svg></div>
+        <h4>Linux</h4><p>Dev &amp; deployment OS</p>
+      </div>
+    </div>
+
+    <div class="cert-toggle-wrap">
+      <button class="btn btn-ghost btn-sm" id="skills-toggle" data-expanded="false">Show all skills</button>
+    </div>
+  </div>
+</section>
+
+<div class="container"><div class="divider"></div></div>
+
+<!-- ============ EXPERIENCE ============ -->
+<section id="experience">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Career</div>
+      <h2>Experience</h2>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item reveal">
+        <div class="dot"></div>
+        <span class="when">June 2025 — Present</span>
+        <h3>AI Developer</h3>
+        <h4>CENTAIC — Center of Artificial Intelligence and Computing</h4>
+        <p>Applying computer vision algorithms to solve real-world problems in surveillance and monitoring.</p>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="dot"></div>
+        <span class="when">April 2025 — May 2025</span>
+        <h3>AI Engineer</h3>
+        <h4>AI Datahouse</h4>
+        <p>Applied artificial intelligence and data-extraction techniques to solve real-world problems.</p>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="dot"></div>
+        <span class="when">March 2024 — October 2024</span>
+        <h3>Research Assistant</h3>
+        <h4>Aerial Robotics Lab, SINES, NUST</h4>
+        <p>Hands-on research in a university lab focused on aerial systems and 3D data.</p>
+        <p>Worked on multi-camera integration, 3D point cloud processing, and LiDAR data analysis.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container"><div class="divider"></div></div>
+
+<!-- ============ EDUCATION ============ -->
+<section id="education">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Academics</div>
+      <h2>Education</h2>
+    </div>
+
+    <div class="edu-grid">
+      <div class="edu-card reveal">
+        <span class="when">2022 — 2024</span>
+        <h5>Master's Degree (MS)</h5>
+        <h3>Robotics and Artificial Intelligence</h3>
+        <p class="school">National University of Sciences and Technology, Islamabad (NUST)</p>
+        <p class="desc">Advanced graduate degree specializing in the intersection of robotics and artificial intelligence.</p>
+      </div>
+      <div class="edu-card reveal">
+        <span class="when">2017 — 2021</span>
+        <h5>Bachelor's Degree (BS)</h5>
+        <h3>Mechatronics Engineering</h3>
+        <p class="school">University of Engineering and Technology, Taxila (UET)</p>
+        <p class="desc">Undergraduate program blending mechanical, electronic and computer engineering principles.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container"><div class="divider"></div></div>
+
+<!-- ============ CERTIFICATIONS ============ -->
+<section id="certifications">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Continuous learning</div>
+      <h2>Certifications</h2>
+      <p>15 certifications spanning ML foundations, computer vision, generative AI and MLOps. <a href="https://drive.google.com/drive/folders/1z72AybdwvyBboFfx9b8QLCQrdrAFUQ7L" target="_blank" rel="noopener" style="color:var(--cyan); text-decoration:underline;">View all on Drive →</a></p>
+    </div>
+
+    <div class="cert-list">
+      <div class="cert-item reveal"><div class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m5 13 4 4L19 7"/></svg></div><div><div class="name">Learn Advanced C++ Programming</div><div class="provider">Udemy</div></div></div>
+      <div class="cert-item reveal"><div class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m5 13 4 4L19 7"/></svg></div><div><div class="name">Python — Intro to Data Science &amp; ML</div><div class="provider">Udemy</div></div></div>
+      <div class="cert-item reveal"><div class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m5 13 4 4L19 7"/></svg></div><div><div class="name">Supervised ML: Regression &amp; Classification</div><div class="provider">DeepLearning.AI</div></div></div>
+      <div class="cert-item reveal"><div class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m5 13 4 4L19 7"/></svg></div><div><div class="name">Neural Networks and Deep Learning</div><div class="provider">Coursera — DeepLearning.AI</div></div></div>
+      <div class="cert-item reveal"><div class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m5 13 4 4L19 7"/></svg></div><div><div class="name">Sequence Models</div><div class="provider">DeepLearning.AI</div></div></div>
+      <div class="cert-item reveal"><div class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m5 13 4 4L19 7"/></svg></div><div><div class="name">AI for Medical Diagnosis</div><div class="provider">DeepLearning.AI</div></div></div>
+
+      <div class="cert-item reveal cert-extra cert-hidden"><div class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m5 13 4 4L19 7"/></svg></div><div><div class="name">Applied Machine Learning: Techniques &amp; Applications</div><div class="provider">Johns Hopkins University</div></div></div>
+      <div class="cert-item reveal cert-extra cert-hidden"><div class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m5 13 4 4L19 7"/></svg></div><div><div class="name">Intro to TensorFlow for AI, ML &amp; Deep Learning</div><div class="provider">DeepLearning.AI</div></div></div>
+      <div class="cert-item reveal cert-extra cert-hidden"><div class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m5 13 4 4L19 7"/></svg></div><div><div class="name">Intro to Computer Vision and Image Processing</div><div class="provider">IBM</div></div></div>
+      <div class="cert-item reveal cert-extra cert-hidden"><div class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m5 13 4 4L19 7"/></svg></div><div><div class="name">Generative AI for Everyone</div><div class="provider">DeepLearning.AI</div></div></div>
+      <div class="cert-item reveal cert-extra cert-hidden"><div class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m5 13 4 4L19 7"/></svg></div><div><div class="name">Build Better Generative Adversarial Networks</div><div class="provider">DeepLearning.AI</div></div></div>
+      <div class="cert-item reveal cert-extra cert-hidden"><div class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m5 13 4 4L19 7"/></svg></div><div><div class="name">Apply Generative Adversarial Networks (GANs)</div><div class="provider">DeepLearning.AI</div></div></div>
+      <div class="cert-item reveal cert-extra cert-hidden"><div class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m5 13 4 4L19 7"/></svg></div><div><div class="name">Digital Twins</div><div class="provider">University of Michigan</div></div></div>
+      <div class="cert-item reveal cert-extra cert-hidden"><div class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m5 13 4 4L19 7"/></svg></div><div><div class="name">DevOps, DataOps, MLOps</div><div class="provider">Duke University</div></div></div>
+      <div class="cert-item reveal cert-extra cert-hidden"><div class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m5 13 4 4L19 7"/></svg></div><div><div class="name">Data Analytics Essentials</div><div class="provider">Cisco</div></div></div>
+    </div>
+
+    <div class="cert-toggle-wrap">
+      <button class="btn btn-ghost btn-sm" id="cert-toggle" data-expanded="false">Show all 15 certifications</button>
+    </div>
+  </div>
+</section>
+
+<div class="container"><div class="divider"></div></div>
+
+<!-- ============ PROJECTS ============ -->
+<section id="work">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Selected work</div>
+      <h2>Featured projects</h2>
+      <p>Projects spanning detection, 3D reconstruction, pose estimation, generative vision and document intelligence. Click card for the full write-up and media.</p>
+    </div>
+
+    <div class="filter-bar reveal" role="tablist" aria-label="Project categories">
+      <button class="filter-pill active" data-filter="all">All</button>
+      <button class="filter-pill" data-filter="detection-tracking">Detection &amp; Tracking</button>
+      <button class="filter-pill" data-filter="3d-reconstruction">3D Reconstruction &amp; Digital Humans</button>
+      <button class="filter-pill" data-filter="pose-gesture">Pose &amp; Gesture</button>
+      <button class="filter-pill" data-filter="generative-restoration">Generative &amp; Restoration</button>
+      <button class="filter-pill" data-filter="document-vlm">Document Intelligence &amp; Vision-Language</button>
+    </div>
+
+    <div class="projects-grid" id="projects-grid">
+
+      <div class="project-card reveal frame" data-project="handball" data-category="detection-tracking">
+        <div class="project-media">
+          <img src="assets/img/portfolio/project-1/1.jpg" alt="Handball Analytics System" loading="lazy" />
+          <div class="scrim"></div>
+          <div class="frame-corners"><i></i><i></i><i></i><i></i></div>
+        </div>
+        <div class="project-body">
+          <div class="project-tags"><span>Computer Vision</span><span>Tracking</span></div>
+          <h3>Handball Analytics System</h3>
+          <p>Multi-object tracking and homography-based analytics for real-time handball performance insight.</p>
+          <div class="project-more">View case study <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
         </div>
       </div>
 
-      <div class="mobile-menu" id="mobile-menu">
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#experience">Experience</a>
-        <a href="#education">Education</a>
-        <a href="#certifications">Certifications</a>
-        <a href="#work">Projects</a>
-        <a href="#contact">Contact</a>
+      <div class="project-card reveal frame" data-project="pointcloud" data-category="3d-reconstruction">
+        <div class="project-media">
+          <img src="assets/img/portfolio/project-2/2.jpg" alt="3D Point Cloud Classification" loading="lazy" />
+          <div class="scrim"></div>
+          <div class="frame-corners"><i></i><i></i><i></i><i></i></div>
+        </div>
+        <div class="project-body">
+          <div class="project-tags"><span>3D Processing</span><span>Self-Supervised</span></div>
+          <h3>3D Point Cloud Classification &amp; Segmentation</h3>
+          <p>Cross-modal contrastive learning for 3D representation using point clouds and images.</p>
+          <div class="project-more">View case study <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+        </div>
       </div>
-    </header>
 
-    <!-- ============ HERO ============ -->
-    <section id="hero" class="hero">
-      <div class="container hero-grid">
+      <div class="project-card reveal frame" data-project="depth" data-category="3d-reconstruction">
+        <div class="project-media">
+          <img src="assets/img/portfolio/project-3/3.jpg" alt="Monocular Depth Estimation" loading="lazy" />
+          <div class="scrim"></div>
+          <div class="frame-corners"><i></i><i></i><i></i><i></i></div>
+        </div>
+        <div class="project-body">
+          <div class="project-tags"><span>Depth Estimation</span><span>3D Recon.</span></div>
+          <h3>Monocular Depth Estimation &amp; Point Cloud Generation</h3>
+          <p>Single-image depth prediction back-projected into enhanced 3D point clouds.</p>
+          <div class="project-more">View case study <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+        </div>
+      </div>
+
+      <div class="project-card reveal frame" data-project="yoga" data-category="pose-gesture">
+        <div class="project-media">
+          <img src="assets/img/portfolio/project-5/5.jpg" alt="Yoga Pose Estimation & Correction" loading="lazy" />
+          <div class="scrim"></div>
+          <div class="frame-corners"><i></i><i></i><i></i><i></i></div>
+        </div>
+        <div class="project-body">
+          <div class="project-tags"><span>Pose Estimation</span><span>Real-Time</span></div>
+          <h3>Yoga Pose Estimation &amp; Correction</h3>
+          <p>MediaPipe-driven biomechanical analysis with real-time form-correction feedback.</p>
+          <div class="project-more">View case study <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+        </div>
+      </div>
+
+      <div class="project-card reveal frame" data-project="4dgs" data-category="3d-reconstruction">
+        <div class="project-media">
+          <img src="assets/img/portfolio/project-4/image-1.jpg" alt="4D Gaussian Splatting Dynamic Scene Reconstruction" loading="lazy" />
+          <div class="scrim"></div>
+          <div class="frame-corners"><i></i><i></i><i></i><i></i></div>
+        </div>
+        <div class="project-body">
+          <div class="project-tags"><span>Neural Rendering</span><span>Research</span></div>
+          <h3>4DGS Dynamic Scene Reconstruction</h3>
+          <p>Real-time photorealistic rendering of dynamic scenes via 4D Gaussian Splatting.</p>
+          <div class="project-more">View case study <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+        </div>
+      </div>
+
+      <div class="project-card reveal frame" data-project="license" data-category="detection-tracking">
+        <div class="project-media">
+          <img src="assets/img/portfolio/project-6/6.jpeg" alt="License Plate Detection and Recognition System" loading="lazy" />
+          <div class="scrim"></div>
+          <div class="frame-corners"><i></i><i></i><i></i><i></i></div>
+        </div>
+        <div class="project-body">
+          <div class="project-tags"><span>OCR</span><span>Security</span></div>
+          <h3>License Plate Detection &amp; Recognition</h3>
+          <p>Faster R-CNN / YOLO detection with PaddleOCR text extraction for high-speed vehicles.</p>
+          <div class="project-more">View case study <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+        </div>
+      </div>
+
+      <!-- ===== Coming soon — Detection & Tracking ===== -->
+      <div class="project-card is-locked" data-category="detection-tracking">
+        <div class="project-media locked-media">
+          <div class="frame-corners"><i></i><i></i><i></i><i></i></div>
+          <span class="soon-badge">Coming Soon</span>
+        </div>
+        <div class="project-body">
+          <div class="project-tags"><span>Detection</span></div>
+          <h3>3D Object Detection</h3>
+          <p>Under construction.</p>
+        </div>
+      </div>
+
+      <div class="project-card is-locked" data-category="detection-tracking">
+        <div class="project-media locked-media">
+          <div class="frame-corners"><i></i><i></i><i></i><i></i></div>
+          <span class="soon-badge">Coming Soon</span>
+        </div>
+        <div class="project-body">
+          <div class="project-tags"><span>Re-Identification</span></div>
+          <h3>Person Re-Identification</h3>
+          <p>Under construction.</p>
+        </div>
+      </div>
+
+      <div class="project-card is-locked" data-category="detection-tracking">
+        <div class="project-media locked-media">
+          <div class="frame-corners"><i></i><i></i><i></i><i></i></div>
+          <span class="soon-badge">Coming Soon</span>
+        </div>
+        <div class="project-body">
+          <div class="project-tags"><span>Face Recognition</span></div>
+          <h3>Facial Recognition</h3>
+          <p>Under construction.</p>
+        </div>
+      </div>
+
+      <!-- ===== Coming soon — 3D Reconstruction & Digital Humans ===== -->
+      <div class="project-card is-locked" data-category="3d-reconstruction">
+        <div class="project-media locked-media">
+          <div class="frame-corners"><i></i><i></i><i></i><i></i></div>
+          <span class="soon-badge">Coming Soon</span>
+        </div>
+        <div class="project-body">
+          <div class="project-tags"><span>Photogrammetry</span></div>
+          <h3>Multi-View 3D Object Scanner</h3>
+          <p>Under construction.</p>
+        </div>
+      </div>
+
+      <div class="project-card is-locked" data-category="3d-reconstruction">
+        <div class="project-media locked-media">
+          <div class="frame-corners"><i></i><i></i><i></i><i></i></div>
+          <span class="soon-badge">Coming Soon</span>
+        </div>
+        <div class="project-body">
+          <div class="project-tags"><span>Digital Human</span></div>
+          <h3>Full Human Digital Twin</h3>
+          <p>Under construction.</p>
+        </div>
+      </div>
+
+      <!-- ===== Coming soon — Pose & Gesture ===== -->
+      <div class="project-card is-locked" data-category="pose-gesture">
+        <div class="project-media locked-media">
+          <div class="frame-corners"><i></i><i></i><i></i><i></i></div>
+          <span class="soon-badge">Coming Soon</span>
+        </div>
+        <div class="project-body">
+          <div class="project-tags"><span>Gesture Recognition</span></div>
+          <h3>Hand Sign Language Recognition</h3>
+          <p>Under construction.</p>
+        </div>
+      </div>
+
+      <!-- ===== Coming soon — Generative & Restoration ===== -->
+      <div class="project-card is-locked" data-category="generative-restoration">
+        <div class="project-media locked-media">
+          <div class="frame-corners"><i></i><i></i><i></i><i></i></div>
+          <span class="soon-badge">Coming Soon</span>
+        </div>
+        <div class="project-body">
+          <div class="project-tags"><span>Generative Vision</span></div>
+          <h3>Inpainting</h3>
+          <p>Under construction.</p>
+        </div>
+      </div>
+
+      <div class="project-card is-locked" data-category="generative-restoration">
+        <div class="project-media locked-media">
+          <div class="frame-corners"><i></i><i></i><i></i><i></i></div>
+          <span class="soon-badge">Coming Soon</span>
+        </div>
+        <div class="project-body">
+          <div class="project-tags"><span>Image-to-Image</span></div>
+          <h3>Sketch-to-Photo Translation</h3>
+          <p>Under construction.</p>
+        </div>
+      </div>
+
+      <div class="project-card is-locked" data-category="generative-restoration">
+        <div class="project-media locked-media">
+          <div class="frame-corners"><i></i><i></i><i></i><i></i></div>
+          <span class="soon-badge">Coming Soon</span>
+        </div>
+        <div class="project-body">
+          <div class="project-tags"><span>Restoration</span></div>
+          <h3>Old Photo / Video Restoration</h3>
+          <p>Under construction.</p>
+        </div>
+      </div>
+
+      <!-- ===== Coming soon — Document Intelligence & Vision-Language ===== -->
+      <div class="project-card is-locked" data-category="document-vlm">
+        <div class="project-media locked-media">
+          <div class="frame-corners"><i></i><i></i><i></i><i></i></div>
+          <span class="soon-badge">Coming Soon</span>
+        </div>
+        <div class="project-body">
+          <div class="project-tags"><span>OCR</span><span>Automation</span></div>
+          <h3>Document Parsing &amp; Email Automation</h3>
+          <p>Under construction.</p>
+        </div>
+      </div>
+
+      <div class="project-card is-locked" data-category="document-vlm">
+        <div class="project-media locked-media">
+          <div class="frame-corners"><i></i><i></i><i></i><i></i></div>
+          <span class="soon-badge">Coming Soon</span>
+        </div>
+        <div class="project-body">
+          <div class="project-tags"><span>Vision-Language</span></div>
+          <h3>Visual QA / Image Captioning</h3>
+          <p>Under construction.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="container"><div class="divider"></div></div>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Get in touch</div>
+      <h2>Let's build something</h2>
+      <p>Available for freelance projects and full-time AI / Computer Vision roles.</p>
+    </div>
+
+    <div class="contact-wrap">
+      <div class="contact-card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s7-6.5 7-12a7 7 0 1 0-14 0c0 5.5 7 12 7 12Z"/><circle cx="12" cy="9" r="2.5"/></svg></div>
+        <h4>Location</h4>
+        <p>Rawalpindi, Pakistan</p>
+      </div>
+      <div class="contact-card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></div>
+        <h4>Email</h4>
+        <p><a href="mailto:sabihshah999@gmail.com">sabihshah999@gmail.com</a></p>
+      </div>
+      <div class="contact-card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.5 2.1L8 9.7a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.7 2Z"/></svg></div>
+        <h4>Phone</h4>
+        <p><a href="tel:+923484553674">(+92) 348 4553674</a></p>
+      </div>
+      <div class="contact-card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg></div>
+        <h4>GitHub</h4>
+        <p><a href="https://github.com/SabihShah/" target="_blank" rel="noopener">github.com/SabihShah</a></p>
+      </div>
+
+      <div class="contact-cta reveal">
         <div>
-          <div class="hero-kicker">
-            <span class="bar"></span>RAWALPINDI, PAKISTAN · AVAILABLE FOR WORK
-          </div>
-          <h1>
-            Building machines<br />that <span class="grad">see</span> &amp;
-            understand<br />the world.
-          </h1>
-          <div class="hero-role">
-            &gt; <span id="hero-role-text"></span
-            ><span class="cursor">&nbsp;</span>
-          </div>
-          <p class="lede">
-            I'm Sabih — an AI Engineer specializing in Computer Vision and Deep
-            Learning. I design and ship real-time detection, tracking, 3D
-            reconstruction and pose-estimation systems, from research prototype
-            to production.
-          </p>
-          <div class="hero-ctas">
-            <a href="#work" class="btn btn-primary">View Projects</a>
-            <a
-              href="https://drive.google.com/file/d/1S2zQnntX26AkG8my5T9qSYAvAqmgpNwA/view?usp=sharing"
-              target="_blank"
-              rel="noopener"
-              class="btn btn-ghost resume-link"
-              >Download Resume</a
-            >
-          </div>
-          <!-- <div class="hero-meta">
-            <div>
-              <span class="num">6</span
-              ><span class="lbl">Featured Projects</span>
-            </div>
-            <div>
-              <span class="num">15+</span
-              ><span class="lbl">Certifications</span>
-            </div>
-            <div>
-              <span class="num">3</span><span class="lbl">AI / CV Roles</span>
-            </div>
-            <div>
-              <span class="num">MS</span
-              ><span class="lbl">Robotics &amp; AI, NUST</span>
-            </div>
-          </div> -->
+          <h3>Have a role or a project in mind?</h3>
+          <p>I usually reply within a day. Reach out directly or grab my resume.</p>
         </div>
-
-        <div class="hero-visual">
-          <div class="hero-portrait frame is-visible">
-            <div class="ring"></div>
-            <div class="photo-wrap">
-              <img src="assets/img/header/4.jpg" alt="Portrait of Sabih Shah" />
-              <div class="scanline"></div>
-            </div>
-            <div class="frame-corners big"><i></i><i></i><i></i><i></i></div>
-            <span class="tag tag-1">person: 0.99</span>
-            <span class="tag tag-2">cv-engineer</span>
-            <span class="tag tag-3">pytorch · opencv</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="scroll-cue">
-        <span>SCROLL</span><span class="line"></span>
-      </div>
-    </section>
-
-    <!-- ============ ABOUT ============ -->
-    <section id="about">
-      <div class="container">
-        <div class="section-head reveal">
-          <div class="eyebrow">Biography</div>
-          <h2>A little about me</h2>
-        </div>
-
-        <div class="about-grid">
-          <div class="about-card reveal">
-            <div class="row">
-              <span>Name</span><span>Muhammad Sabih-Ul-Hassan</span>
-            </div>
-            <div class="row">
-              <span>Role</span><span>AI / Computer Vision Engineer</span>
-            </div>
-            <div class="row">
-              <span>Location</span><span>Rawalpindi, Pakistan</span>
-            </div>
-            <div class="row">
-              <span>Languages</span><span>English, Urdu, Punjabi</span>
-            </div>
-            <div class="row">
-              <span>Nationality</span><span>Pakistani</span>
-            </div>
-            <div class="row">
-              <span>Email</span
-              ><span
-                ><a href="mailto:sabihshah999@gmail.com"
-                  >sabihshah999@gmail.com</a
-                ></span
-              >
-            </div>
-            <div class="row">
-              <span>Phone</span
-              ><span><a href="tel:+923484553674">(+92) 348 4553674</a></span>
-            </div>
-          </div>
-
-          <div class="about-text reveal">
-            <p>
-              AI Engineer specializing in Computer Vision and Deep Learning,
-              focused on solving complex real-world problems through data-driven
-              solutions.
-            </p>
-            <p>
-              I build systems that turn pixels into decisions — from
-              multi-object tracking and 3D reconstruction to pose estimation and
-              OCR — carrying research ideas through to reliable,
-              production-ready code. My background spans a Master's in Robotics
-              &amp; Artificial Intelligence and hands-on lab and industry
-              experience across surveillance, sports analytics and aerial
-              robotics.
-            </p>
-            <p>
-              I enjoy collaborating with new people and teams around the world —
-              new people bring new problems, and new problems are how I learn.
-            </p>
-
-            <div class="socials">
-              <a
-                class="social-btn"
-                href="https://www.instagram.com/i_sabihshah/"
-                target="_blank"
-                rel="noopener"
-                title="Instagram"
-                aria-label="Instagram"
-              >
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.8"
-                >
-                  <rect x="3" y="3" width="18" height="18" rx="5" />
-                  <circle cx="12" cy="12" r="4" />
-                  <circle cx="17.5" cy="6.5" r="1" />
-                </svg>
-              </a>
-              <a
-                class="social-btn"
-                href="https://www.linkedin.com/in/muhammad-sabih-ul-hassan-39264615a/"
-                target="_blank"
-                rel="noopener"
-                title="LinkedIn"
-                aria-label="LinkedIn"
-              >
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.8"
-                >
-                  <path
-                    d="M6.5 9v9M6.5 5.5v.01M11 18V9m0 4c0-2.5 1.5-4 3.5-4S18 10.5 18 13v5"
-                  />
-                </svg>
-              </a>
-              <a
-                class="social-btn"
-                href="https://github.com/SabihShah/"
-                target="_blank"
-                rel="noopener"
-                title="GitHub"
-                aria-label="GitHub"
-              >
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.8"
-                >
-                  <path
-                    d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"
-                  />
-                </svg>
-              </a>
-              <a
-                class="social-btn copy-email"
-                href="#"
-                data-email="sabihshah999@gmail.com"
-                title="Copy Email"
-                aria-label="Copy email"
-              >
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.8"
-                >
-                  <rect x="3" y="5" width="18" height="14" rx="2" />
-                  <path d="m3 7 9 6 9-6" />
-                </svg>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <div class="container"><div class="divider"></div></div>
-
-    <!-- ============ SKILLS ============ -->
-    <section id="skills">
-      <div class="container">
-        <div class="section-head reveal">
-          <div class="eyebrow">Toolkit</div>
-          <h2>Skills &amp; technologies</h2>
-          <p>
-            Core tools I reach for across research, model development and
-            deployment.
-          </p>
-        </div>
-
-        <div class="skill-group-label reveal">Languages &amp; frameworks</div>
-        <div class="skills-grid" data-stagger>
-          <div class="skill-card reveal">
-            <div class="ic">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.6"
-              >
-                <path d="m16 18 6-6-6-6M8 6l-6 6 6 6" />
-              </svg>
-            </div>
-            <h4>Python</h4>
-            <p>Primary language</p>
-          </div>
-          <div class="skill-card reveal">
-            <div class="ic">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.6"
-              >
-                <circle cx="12" cy="12" r="9" />
-                <path
-                  d="M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18M3 12h18"
-                />
-              </svg>
-            </div>
-            <h4>PyTorch</h4>
-            <p>Deep learning</p>
-          </div>
-          <div class="skill-card reveal">
-            <div class="ic">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.6"
-              >
-                <path d="M4 17V7l8-4 8 4v10l-8 4-8-4Z" />
-                <path d="M4 7l8 4 8-4M12 11v10" />
-              </svg>
-            </div>
-            <h4>TensorFlow</h4>
-            <p>Model training</p>
-          </div>
-          <div class="skill-card reveal">
-            <div class="ic">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.6"
-              >
-                <path d="M12 20V10M18 20V4M6 20v-6" />
-              </svg>
-            </div>
-            <h4>C++</h4>
-            <p>Systems &amp; perf.</p>
-          </div>
-        </div>
-
-        <div class="skill-group-label reveal">Computer vision</div>
-        <div class="skills-grid" data-stagger>
-          <div class="skill-card reveal">
-            <div class="ic">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.6"
-              >
-                <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z" />
-                <circle cx="12" cy="12" r="3" />
-              </svg>
-            </div>
-            <h4>OpenCV</h4>
-            <p>Image processing</p>
-          </div>
-          <div class="skill-card reveal">
-            <div class="ic">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.6"
-              >
-                <rect x="3" y="3" width="7" height="7" rx="1" />
-                <rect x="14" y="3" width="7" height="7" rx="1" />
-                <rect x="14" y="14" width="7" height="7" rx="1" />
-                <rect x="3" y="14" width="7" height="7" rx="1" />
-              </svg>
-            </div>
-            <h4>YOLO</h4>
-            <p>Object detection</p>
-          </div>
-          <div class="skill-card reveal">
-            <div class="ic">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.6"
-              >
-                <path d="M4 4h16v16H4z" />
-                <path d="m4 15 4-4 3 3 5-6 4 4" />
-              </svg>
-            </div>
-            <h4>DeepSORT</h4>
-            <p>Multi-object tracking</p>
-          </div>
-          <div class="skill-card reveal">
-            <div class="ic">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.6"
-              >
-                <circle cx="12" cy="12" r="9" />
-                <path d="m9 12 2 2 4-4" />
-              </svg>
-            </div>
-            <h4>MediaPipe</h4>
-            <p>Pose estimation</p>
-          </div>
-          <div class="skill-card reveal">
-            <div class="ic">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.6"
-              >
-                <rect x="3" y="3" width="18" height="18" rx="2" />
-                <path d="M8 3v18M16 3v18M3 8h18M3 16h18" />
-              </svg>
-            </div>
-            <h4>PaddleOCR</h4>
-            <p>Text recognition</p>
-          </div>
-          <div class="skill-card reveal">
-            <div class="ic">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.6"
-              >
-                <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z" />
-                <path d="M2 12h20M12 2v20" />
-              </svg>
-            </div>
-            <h4>Image Processing</h4>
-            <p>Filtering &amp; analysis</p>
-          </div>
-
-          <!-- Extra CV skills — hidden by default, revealed via "Show all" -->
-          <div class="skill-card reveal skill-extra skill-hidden">
-            <div class="ic">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.6"
-              >
-                <path d="M12 2 2 7l10 5 10-5-10-5Z" />
-                <path d="M2 17l10 5 10-5M2 12l10 5 10-5" />
-              </svg>
-            </div>
-            <h4>Open3D / PointNet++</h4>
-            <p>3D point clouds</p>
-          </div>
-          <div class="skill-card reveal skill-extra skill-hidden">
-            <div class="ic">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.6"
-              >
-                <path d="M3 12h4l3 8 4-16 3 8h4" />
-              </svg>
-            </div>
-            <h4>3D Gaussian Splatting</h4>
-            <p>Neural rendering</p>
-          </div>
-          <div class="skill-card reveal skill-extra skill-hidden">
-            <div class="ic">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.6"
-              >
-                <circle cx="6" cy="6" r="2" />
-                <circle cx="18" cy="6" r="2" />
-                <circle cx="12" cy="18" r="2" />
-                <path d="M6 8v3l6 4M18 8v3l-6 4" />
-              </svg>
-            </div>
-            <h4>NeRF / COLMAP</h4>
-            <p>3D reconstruction</p>
-          </div>
-          <div class="skill-card reveal skill-extra skill-hidden">
-            <div class="ic">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.6"
-              >
-                <circle cx="12" cy="12" r="3" />
-                <path
-                  d="M12 5V3M12 21v-2M5 12H3M21 12h-2M7.5 7.5 6 6M18 18l-1.5-1.5M7.5 16.5 6 18M18 6l-1.5 1.5"
-                />
-              </svg>
-            </div>
-            <h4>Detectron2</h4>
-            <p>Instance segmentation</p>
-          </div>
-          <div class="skill-card reveal skill-extra skill-hidden">
-            <div class="ic">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.6"
-              >
-                <circle cx="12" cy="12" r="4" />
-                <path
-                  d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"
-                />
-              </svg>
-            </div>
-            <h4>GStreamer</h4>
-            <p>Video pipelines</p>
-          </div>
-          <div class="skill-card reveal skill-extra skill-hidden">
-            <div class="ic">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.6"
-              >
-                <rect x="2" y="4" width="20" height="6" rx="1.5" />
-                <rect x="2" y="14" width="20" height="6" rx="1.5" />
-                <path d="M6 7h.01M6 17h.01" />
-              </svg>
-            </div>
-            <h4>NVIDIA DeepStream</h4>
-            <p>Real-time video AI</p>
-          </div>
-          <div class="skill-card reveal skill-extra skill-hidden">
-            <div class="ic">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.6"
-              >
-                <rect x="3" y="3" width="18" height="18" rx="2" />
-                <path d="M7 8h10M7 12h10M7 16h6" />
-              </svg>
-            </div>
-            <h4>Triton Inference Server</h4>
-            <p>Model serving</p>
-          </div>
-          <div class="skill-card reveal skill-extra skill-hidden">
-            <div class="ic">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.6"
-              >
-                <path d="M13 2 3 14h7l-1 8 10-12h-7l1-8Z" />
-              </svg>
-            </div>
-            <h4>TensorRT</h4>
-            <p>Inference optimization</p>
-          </div>
-          <div class="skill-card reveal skill-extra skill-hidden">
-            <div class="ic">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.6"
-              >
-                <path d="m17 3 4 4-4 4M21 7H9M7 21l-4-4 4-4M3 17h12" />
-              </svg>
-            </div>
-            <h4>ONNX Runtime</h4>
-            <p>Cross-platform inference</p>
-          </div>
-          <div class="skill-card reveal skill-extra skill-hidden">
-            <div class="ic">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.6"
-              >
-                <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z" />
-                <circle cx="12" cy="12" r="3" />
-              </svg>
-            </div>
-            <h4>OpenVINO</h4>
-            <p>Edge inference</p>
-          </div>
-          <div class="skill-card reveal skill-extra skill-hidden">
-            <div class="ic">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.6"
-              >
-                <rect x="5" y="7" width="14" height="10" rx="2" />
-                <path d="M9 3v4M15 3v4M9 21v-4M15 21v-4" />
-                <circle cx="9" cy="12" r="1" />
-                <circle cx="15" cy="12" r="1" />
-              </svg>
-            </div>
-            <h4>ROS</h4>
-            <p>Robotics integration</p>
-          </div>
-        </div>
-
-        <div class="skill-group-label reveal">Tools &amp; workflow</div>
-        <div class="skills-grid" data-stagger>
-          <div class="skill-card reveal">
-            <div class="ic">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.6"
-              >
-                <circle cx="6" cy="6" r="3" />
-                <circle cx="6" cy="18" r="3" />
-                <circle cx="18" cy="12" r="3" />
-                <path d="M6 9v6M8.6 7.4 15.4 10.6M8.6 16.6 15.4 13.4" />
-              </svg>
-            </div>
-            <h4>Git</h4>
-            <p>Version control</p>
-          </div>
-          <div class="skill-card reveal">
-            <div class="ic">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.6"
-              >
-                <rect x="4" y="4" width="16" height="16" rx="2" />
-                <path d="M9 9h6v6H9z" />
-              </svg>
-            </div>
-            <h4>CUDA</h4>
-            <p>GPU acceleration</p>
-          </div>
-          <div class="skill-card reveal">
-            <div class="ic">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.6"
-              >
-                <path
-                  d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"
-                />
-              </svg>
-            </div>
-            <h4>NumPy / Pandas</h4>
-            <p>Data processing</p>
-          </div>
-          <div class="skill-card reveal">
-            <div class="ic">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.6"
-              >
-                <path
-                  d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
-                />
-              </svg>
-            </div>
-            <h4>MLOps</h4>
-            <p>Model lifecycle</p>
-          </div>
-
-          <!-- Extra tooling — hidden by default, revealed via "Show all" -->
-          <div class="skill-card reveal skill-extra skill-hidden">
-            <div class="ic">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.6"
-              >
-                <path
-                  d="M12 2 2 7l10 5 10-5-10-5ZM2 17l10 5 10-5M2 12l10 5 10-5"
-                />
-              </svg>
-            </div>
-            <h4>Docker</h4>
-            <p>Containerization</p>
-          </div>
-          <div class="skill-card reveal skill-extra skill-hidden">
-            <div class="ic">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.6"
-              >
-                <rect x="3" y="4" width="18" height="16" rx="2" />
-                <path d="m7 9 3 3-3 3M13 15h4" />
-              </svg>
-            </div>
-            <h4>Linux</h4>
-            <p>Dev &amp; deployment OS</p>
-          </div>
-        </div>
-
-        <div class="cert-toggle-wrap">
-          <button
-            class="btn btn-ghost btn-sm"
-            id="skills-toggle"
-            data-expanded="false"
-          >
-            Show all skills
-          </button>
-        </div>
-      </div>
-    </section>
-
-    <div class="container"><div class="divider"></div></div>
-
-    <!-- ============ EXPERIENCE ============ -->
-    <section id="experience">
-      <div class="container">
-        <div class="section-head reveal">
-          <div class="eyebrow">Career</div>
-          <h2>Experience</h2>
-        </div>
-
-        <div class="timeline">
-          <div class="timeline-item reveal">
-            <div class="dot"></div>
-            <span class="when">June 2025 — Present</span>
-            <h3>AI Developer</h3>
-            <h4>
-              NASTP, CENTAIC — Center of Artificial Intelligence and Computing
-            </h4>
-            <p>
-              Applying computer vision algorithms to solve real-world problems
-              in surveillance and monitoring.
-            </p>
-          </div>
-          <div class="timeline-item reveal">
-            <div class="dot"></div>
-            <span class="when">April 2025 — May 2025</span>
-            <h3>AI Engineer</h3>
-            <h4>AI Datahouse</h4>
-            <p>
-              Applied artificial intelligence and data-extraction techniques to
-              solve real-world problems.
-            </p>
-          </div>
-          <div class="timeline-item reveal">
-            <div class="dot"></div>
-            <span class="when">March 2024 — October 2024</span>
-            <h3>Research Assistant</h3>
-            <h4>Aerial Robotics Lab, SINES, NUST</h4>
-            <p>
-              Hands-on research in a university lab focused on aerial systems
-              and 3D data.
-            </p>
-            <p>
-              Worked on multi-camera integration, 3D point cloud processing, and
-              LiDAR data analysis.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <div class="container"><div class="divider"></div></div>
-
-    <!-- ============ EDUCATION ============ -->
-    <section id="education">
-      <div class="container">
-        <div class="section-head reveal">
-          <div class="eyebrow">Academics</div>
-          <h2>Education</h2>
-        </div>
-
-        <div class="edu-grid">
-          <div class="edu-card reveal">
-            <span class="when">2022 — 2024</span>
-            <h5>Master's Degree (MS)</h5>
-            <h3>Robotics and Artificial Intelligence</h3>
-            <p class="school">
-              National University of Sciences and Technology, Islamabad (NUST)
-            </p>
-            <p class="desc">
-              Advanced graduate degree specializing in the intersection of
-              robotics and artificial intelligence.
-            </p>
-          </div>
-          <div class="edu-card reveal">
-            <span class="when">2017 — 2021</span>
-            <h5>Bachelor's Degree (BS)</h5>
-            <h3>Mechatronics Engineering</h3>
-            <p class="school">
-              University of Engineering and Technology, Taxila (UET)
-            </p>
-            <p class="desc">
-              Undergraduate program blending mechanical, electronic and computer
-              engineering principles.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <div class="container"><div class="divider"></div></div>
-
-    <!-- ============ CERTIFICATIONS ============ -->
-    <section id="certifications">
-      <div class="container">
-        <div class="section-head reveal">
-          <div class="eyebrow">Continuous learning</div>
-          <h2>Certifications</h2>
-          <p>
-            15 certifications spanning ML foundations, computer vision,
-            generative AI and MLOps.
-            <a
-              href="https://drive.google.com/drive/folders/1z72AybdwvyBboFfx9b8QLCQrdrAFUQ7L"
-              target="_blank"
-              rel="noopener"
-              style="color: var(--cyan); text-decoration: underline"
-              >View all on Drive →</a
-            >
-          </p>
-        </div>
-
-        <div class="cert-list">
-          <div class="cert-item reveal">
-            <div class="badge">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.8"
-              >
-                <path d="m5 13 4 4L19 7" />
-              </svg>
-            </div>
-            <div>
-              <div class="name">Learn Advanced C++ Programming</div>
-              <div class="provider">Udemy</div>
-            </div>
-          </div>
-          <div class="cert-item reveal">
-            <div class="badge">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.8"
-              >
-                <path d="m5 13 4 4L19 7" />
-              </svg>
-            </div>
-            <div>
-              <div class="name">Python — Intro to Data Science &amp; ML</div>
-              <div class="provider">Udemy</div>
-            </div>
-          </div>
-          <div class="cert-item reveal">
-            <div class="badge">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.8"
-              >
-                <path d="m5 13 4 4L19 7" />
-              </svg>
-            </div>
-            <div>
-              <div class="name">
-                Supervised ML: Regression &amp; Classification
-              </div>
-              <div class="provider">DeepLearning.AI</div>
-            </div>
-          </div>
-          <div class="cert-item reveal">
-            <div class="badge">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.8"
-              >
-                <path d="m5 13 4 4L19 7" />
-              </svg>
-            </div>
-            <div>
-              <div class="name">Neural Networks and Deep Learning</div>
-              <div class="provider">Coursera — DeepLearning.AI</div>
-            </div>
-          </div>
-          <div class="cert-item reveal">
-            <div class="badge">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.8"
-              >
-                <path d="m5 13 4 4L19 7" />
-              </svg>
-            </div>
-            <div>
-              <div class="name">Sequence Models</div>
-              <div class="provider">DeepLearning.AI</div>
-            </div>
-          </div>
-          <div class="cert-item reveal">
-            <div class="badge">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.8"
-              >
-                <path d="m5 13 4 4L19 7" />
-              </svg>
-            </div>
-            <div>
-              <div class="name">AI for Medical Diagnosis</div>
-              <div class="provider">DeepLearning.AI</div>
-            </div>
-          </div>
-
-          <div class="cert-item reveal cert-extra cert-hidden">
-            <div class="badge">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.8"
-              >
-                <path d="m5 13 4 4L19 7" />
-              </svg>
-            </div>
-            <div>
-              <div class="name">
-                Applied Machine Learning: Techniques &amp; Applications
-              </div>
-              <div class="provider">Johns Hopkins University</div>
-            </div>
-          </div>
-          <div class="cert-item reveal cert-extra cert-hidden">
-            <div class="badge">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.8"
-              >
-                <path d="m5 13 4 4L19 7" />
-              </svg>
-            </div>
-            <div>
-              <div class="name">
-                Intro to TensorFlow for AI, ML &amp; Deep Learning
-              </div>
-              <div class="provider">DeepLearning.AI</div>
-            </div>
-          </div>
-          <div class="cert-item reveal cert-extra cert-hidden">
-            <div class="badge">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.8"
-              >
-                <path d="m5 13 4 4L19 7" />
-              </svg>
-            </div>
-            <div>
-              <div class="name">
-                Intro to Computer Vision and Image Processing
-              </div>
-              <div class="provider">IBM</div>
-            </div>
-          </div>
-          <div class="cert-item reveal cert-extra cert-hidden">
-            <div class="badge">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.8"
-              >
-                <path d="m5 13 4 4L19 7" />
-              </svg>
-            </div>
-            <div>
-              <div class="name">Generative AI for Everyone</div>
-              <div class="provider">DeepLearning.AI</div>
-            </div>
-          </div>
-          <div class="cert-item reveal cert-extra cert-hidden">
-            <div class="badge">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.8"
-              >
-                <path d="m5 13 4 4L19 7" />
-              </svg>
-            </div>
-            <div>
-              <div class="name">
-                Build Better Generative Adversarial Networks
-              </div>
-              <div class="provider">DeepLearning.AI</div>
-            </div>
-          </div>
-          <div class="cert-item reveal cert-extra cert-hidden">
-            <div class="badge">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.8"
-              >
-                <path d="m5 13 4 4L19 7" />
-              </svg>
-            </div>
-            <div>
-              <div class="name">
-                Apply Generative Adversarial Networks (GANs)
-              </div>
-              <div class="provider">DeepLearning.AI</div>
-            </div>
-          </div>
-          <div class="cert-item reveal cert-extra cert-hidden">
-            <div class="badge">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.8"
-              >
-                <path d="m5 13 4 4L19 7" />
-              </svg>
-            </div>
-            <div>
-              <div class="name">Digital Twins</div>
-              <div class="provider">University of Michigan</div>
-            </div>
-          </div>
-          <div class="cert-item reveal cert-extra cert-hidden">
-            <div class="badge">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.8"
-              >
-                <path d="m5 13 4 4L19 7" />
-              </svg>
-            </div>
-            <div>
-              <div class="name">DevOps, DataOps, MLOps</div>
-              <div class="provider">Duke University</div>
-            </div>
-          </div>
-          <div class="cert-item reveal cert-extra cert-hidden">
-            <div class="badge">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.8"
-              >
-                <path d="m5 13 4 4L19 7" />
-              </svg>
-            </div>
-            <div>
-              <div class="name">Data Analytics Essentials</div>
-              <div class="provider">Cisco</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="cert-toggle-wrap">
-          <button
-            class="btn btn-ghost btn-sm"
-            id="cert-toggle"
-            data-expanded="false"
-          >
-            Show all 15 certifications
-          </button>
-        </div>
-      </div>
-    </section>
-
-    <div class="container"><div class="divider"></div></div>
-
-    <!-- ============ PROJECTS ============ -->
-    <section id="work">
-      <div class="container">
-        <div class="section-head reveal">
-          <div class="eyebrow">Selected work</div>
-          <h2>Featured projects</h2>
-          <p>
-            Six projects spanning tracking, 3D reconstruction, pose estimation
-            and OCR. Click any card for the full write-up and media.
-          </p>
-        </div>
-
-        <div class="projects-grid">
-          <div class="project-card reveal frame" data-project="handball">
-            <div class="project-media">
-              <img
-                src="assets/img/portfolio/project-1/1.jpg"
-                alt="Handball Analytics System"
-                loading="lazy"
-              />
-              <div class="scrim"></div>
-              <div class="frame-corners"><i></i><i></i><i></i><i></i></div>
-            </div>
-            <div class="project-body">
-              <div class="project-tags">
-                <span>Computer Vision</span><span>Tracking</span>
-              </div>
-              <h3>Handball Analytics System</h3>
-              <p>
-                Multi-object tracking and homography-based analytics for
-                real-time handball performance insight.
-              </p>
-              <div class="project-more">
-                View case study
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <path d="M5 12h14M13 6l6 6-6 6" />
-                </svg>
-              </div>
-            </div>
-          </div>
-
-          <div class="project-card reveal frame" data-project="pointcloud">
-            <div class="project-media">
-              <img
-                src="assets/img/portfolio/project-2/2.jpg"
-                alt="3D Point Cloud Classification"
-                loading="lazy"
-              />
-              <div class="scrim"></div>
-              <div class="frame-corners"><i></i><i></i><i></i><i></i></div>
-            </div>
-            <div class="project-body">
-              <div class="project-tags">
-                <span>3D Processing</span><span>Self-Supervised</span>
-              </div>
-              <h3>3D Point Cloud Classification &amp; Segmentation</h3>
-              <p>
-                Cross-modal contrastive learning for 3D representation using
-                point clouds and images.
-              </p>
-              <div class="project-more">
-                View case study
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <path d="M5 12h14M13 6l6 6-6 6" />
-                </svg>
-              </div>
-            </div>
-          </div>
-
-          <div class="project-card reveal frame" data-project="depth">
-            <div class="project-media">
-              <img
-                src="assets/img/portfolio/project-3/3.jpg"
-                alt="Monocular Depth Estimation"
-                loading="lazy"
-              />
-              <div class="scrim"></div>
-              <div class="frame-corners"><i></i><i></i><i></i><i></i></div>
-            </div>
-            <div class="project-body">
-              <div class="project-tags">
-                <span>Depth Estimation</span><span>3D Recon.</span>
-              </div>
-              <h3>Monocular Depth Estimation &amp; Point Cloud Generation</h3>
-              <p>
-                Single-image depth prediction back-projected into enhanced 3D
-                point clouds.
-              </p>
-              <div class="project-more">
-                View case study
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <path d="M5 12h14M13 6l6 6-6 6" />
-                </svg>
-              </div>
-            </div>
-          </div>
-
-          <div class="project-card reveal frame" data-project="yoga">
-            <div class="project-media">
-              <img
-                src="assets/img/portfolio/project-5/5.jpg"
-                alt="Yoga Pose Estimation & Correction"
-                loading="lazy"
-              />
-              <div class="scrim"></div>
-              <div class="frame-corners"><i></i><i></i><i></i><i></i></div>
-            </div>
-            <div class="project-body">
-              <div class="project-tags">
-                <span>Pose Estimation</span><span>Real-Time</span>
-              </div>
-              <h3>Yoga Pose Estimation &amp; Correction</h3>
-              <p>
-                MediaPipe-driven biomechanical analysis with real-time
-                form-correction feedback.
-              </p>
-              <div class="project-more">
-                View case study
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <path d="M5 12h14M13 6l6 6-6 6" />
-                </svg>
-              </div>
-            </div>
-          </div>
-
-          <div class="project-card reveal frame" data-project="4dgs">
-            <div class="project-media">
-              <img
-                src="assets/img/portfolio/project-4/image-1.jpg"
-                alt="4D Gaussian Splatting Dynamic Scene Reconstruction"
-                loading="lazy"
-              />
-              <div class="scrim"></div>
-              <div class="frame-corners"><i></i><i></i><i></i><i></i></div>
-            </div>
-            <div class="project-body">
-              <div class="project-tags">
-                <span>Neural Rendering</span><span>Research</span>
-              </div>
-              <h3>4DGS Dynamic Scene Reconstruction</h3>
-              <p>
-                Real-time photorealistic rendering of dynamic scenes via 4D
-                Gaussian Splatting.
-              </p>
-              <div class="project-more">
-                View case study
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <path d="M5 12h14M13 6l6 6-6 6" />
-                </svg>
-              </div>
-            </div>
-          </div>
-
-          <div class="project-card reveal frame" data-project="license">
-            <div class="project-media">
-              <img
-                src="assets/img/portfolio/project-6/6.jpeg"
-                alt="License Plate Detection and Recognition System"
-                loading="lazy"
-              />
-              <div class="scrim"></div>
-              <div class="frame-corners"><i></i><i></i><i></i><i></i></div>
-            </div>
-            <div class="project-body">
-              <div class="project-tags">
-                <span>OCR</span><span>Security</span>
-              </div>
-              <h3>License Plate Detection &amp; Recognition</h3>
-              <p>
-                Faster R-CNN / YOLO detection with PaddleOCR text extraction for
-                high-speed vehicles.
-              </p>
-              <div class="project-more">
-                View case study
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <path d="M5 12h14M13 6l6 6-6 6" />
-                </svg>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <div class="container"><div class="divider"></div></div>
-
-    <!-- ============ CONTACT ============ -->
-    <section id="contact">
-      <div class="container">
-        <div class="section-head reveal">
-          <div class="eyebrow">Get in touch</div>
-          <h2>Let's build something</h2>
-          <p>
-            Available for freelance projects and full-time AI / Computer Vision
-            roles.
-          </p>
-        </div>
-
-        <div class="contact-wrap">
-          <div class="contact-card reveal">
-            <div class="ic">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.8"
-              >
-                <path d="M12 21s7-6.5 7-12a7 7 0 1 0-14 0c0 5.5 7 12 7 12Z" />
-                <circle cx="12" cy="9" r="2.5" />
-              </svg>
-            </div>
-            <h4>Location</h4>
-            <p>Rawalpindi, Pakistan</p>
-          </div>
-          <div class="contact-card reveal">
-            <div class="ic">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.8"
-              >
-                <rect x="3" y="5" width="18" height="14" rx="2" />
-                <path d="m3 7 9 6 9-6" />
-              </svg>
-            </div>
-            <h4>Email</h4>
-            <p>
-              <a href="mailto:sabihshah999@gmail.com">sabihshah999@gmail.com</a>
-            </p>
-          </div>
-          <div class="contact-card reveal">
-            <div class="ic">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.8"
-              >
-                <path
-                  d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.5 2.1L8 9.7a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.7 2Z"
-                />
-              </svg>
-            </div>
-            <h4>Phone</h4>
-            <p><a href="tel:+923484553674">(+92) 348 4553674</a></p>
-          </div>
-          <div class="contact-card reveal">
-            <div class="ic">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.8"
-              >
-                <path
-                  d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"
-                />
-              </svg>
-            </div>
-            <h4>GitHub</h4>
-            <p>
-              <a
-                href="https://github.com/SabihShah/"
-                target="_blank"
-                rel="noopener"
-                >github.com/SabihShah</a
-              >
-            </p>
-          </div>
-
-          <div class="contact-cta reveal">
-            <div>
-              <h3>Have a role or a project in mind?</h3>
-              <p>
-                I usually reply within a day. Reach out directly or grab my
-                resume.
-              </p>
-            </div>
-            <div class="actions">
-              <a class="btn btn-primary" href="mailto:sabihshah999@gmail.com"
-                >Email Me</a
-              >
-              <a
-                class="btn btn-ghost resume-link"
-                href="https://drive.google.com/file/d/1S2zQnntX26AkG8my5T9qSYAvAqmgpNwA/view?usp=sharing"
-                target="_blank"
-                rel="noopener"
-                >Download Resume</a
-              >
-              <a
-                class="btn btn-ghost"
-                href="https://www.linkedin.com/in/muhammad-sabih-ul-hassan-39264615a/"
-                target="_blank"
-                rel="noopener"
-                >LinkedIn</a
-              >
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ FOOTER ============ -->
-    <footer>
-      <div class="container footer-inner">
-        <p>
-          &copy; <span id="year"></span> SABIH SHAH — AI / COMPUTER VISION
-          ENGINEER
-        </p>
-        <p>BUILT WITH INTENTION IN RAWALPINDI, PK</p>
-      </div>
-    </footer>
-
-    <button id="back-to-top" aria-label="Back to top">
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-      >
-        <path d="M12 19V5M5 12l7-7 7 7" />
-      </svg>
-    </button>
-
-    <div class="toast" id="toast"></div>
-
-    <!-- ============ PROJECT MODAL ============ -->
-    <div class="modal-overlay" id="project-modal">
-      <div class="modal-box">
-        <button class="modal-close" aria-label="Close">&times;</button>
-        <div class="modal-media">
-          <div class="modal-media-main"></div>
-          <div class="modal-thumbs"></div>
-        </div>
-        <div class="modal-details">
-          <div class="project_tags"></div>
-          <h2 class="modal-title"></h2>
-          <p class="overview"></p>
-          <h4>Key Features</h4>
-          <ul class="features_list"></ul>
-          <h4>Technologies Used</h4>
-          <div class="tech_stack"></div>
-          <div class="project_links"></div>
+        <div class="actions">
+          <a class="btn btn-primary" href="mailto:sabihshah999@gmail.com">Email Me</a>
+          <a class="btn btn-ghost resume-link" href="https://drive.google.com/file/d/1S2zQnntX26AkG8my5T9qSYAvAqmgpNwA/view?usp=sharing" target="_blank" rel="noopener">Download Resume</a>
+          <a class="btn btn-ghost" href="https://www.linkedin.com/in/muhammad-sabih-ul-hassan-39264615a/" target="_blank" rel="noopener">LinkedIn</a>
         </div>
       </div>
     </div>
+  </div>
+</section>
 
-    <script>
-      document.getElementById("year").textContent = new Date().getFullYear();
-    </script>
-    <script src="js/main.js"></script>
-  </body>
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="container footer-inner">
+    <p>&copy; <span id="year"></span> SABIH SHAH — AI / COMPUTER VISION ENGINEER</p>
+    <p>BUILT WITH INTENTION IN RAWALPINDI, PK</p>
+  </div>
+</footer>
+
+<button id="back-to-top" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
+<div class="toast" id="toast"></div>
+
+<!-- ============ PROJECT MODAL ============ -->
+<div class="modal-overlay" id="project-modal">
+  <div class="modal-box">
+    <button class="modal-close" aria-label="Close">&times;</button>
+    <div class="modal-media">
+      <div class="modal-media-main"></div>
+      <div class="modal-thumbs"></div>
+    </div>
+    <div class="modal-details">
+      <div class="project_tags"></div>
+      <h2 class="modal-title"></h2>
+      <p class="overview"></p>
+      <h4>Key Features</h4>
+      <ul class="features_list"></ul>
+      <h4>Technologies Used</h4>
+      <div class="tech_stack"></div>
+      <div class="project_links"></div>
+    </div>
+  </div>
+</div>
+
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<script src="js/main.js"></script>
+</body>
 </html>
