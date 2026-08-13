@@ -391,6 +391,26 @@
       ],
       links: [],
     },
+    REID: {
+      title: "Multi-Camera Person Tracking & Re-Identification",
+      tags: ["Computer Vision", "Multi-Camera Tracking", "Person Re-ID", "Surveillance"],
+      overview:
+        "A multi-camera person tracking pipeline that preserves identity across different video streams by combining single-camera tracking with appearance-based cross-camera re-identification. The system assigns a consistent global ID as a person moves between cameras, enabling robust identity continuity in surveillance and analytics scenarios.",
+      features: [
+        "Single-camera tracking with ByteTrack, DeepSORT, BoT-SORT, and OC-SORT",
+        "Cross-camera identity matching using OSNet and agw embeddings",
+        "Global ID assignment across multiple camera views",
+        "Boundary-aware filtering to reduce false matches at frame edges",
+        "Scalable person tracking for security and retail analytics",
+      ],
+      technologies: ["Python", "OpenCV", "PyTorch", "OSNet", "agw", "Cosine Similarity"],
+      media: [
+        { type: "image", src: "assets/img/portfolio/reid/reid_diagram.png" },
+        { type: "image", src: "assets/img/portfolio/reid/reid-1.png" },
+        { type: "video", src: "assets/img/portfolio/reid/Person REID.webm" }
+      ],
+      links: [{ title: "View on GitHub", url: "https://github.com/SabihShah/Person-ReIdentification", primary: true }],
+    },
   };
 
   const modal = document.getElementById("project-modal");
