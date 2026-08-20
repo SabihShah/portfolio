@@ -411,6 +411,86 @@
       ],
       links: [{ title: "View on GitHub", url: "https://github.com/SabihShah/Person-ReIdentification", primary: true }],
     },
+    "3D Object Detection": {
+      title: "3D Object Detection with Monocular Camera",
+      tags: ["Computer Vision", "3D Vision", "Autonomous Perception"],
+      overview:
+        "A camera-only 3D object detection pipeline that predicts full 3D bounding boxes — position, dimensions, and orientation — from single RGB frames, without relying on LiDAR. Built on FCOS3D with a custom batch inference pipeline for images and video, enabling real-time visualization of detected objects in 3D space using only a standard camera feed.",
+      features: [
+        "Monocular 3D detection using FCOS3D (dense prediction, anchor-free)",
+        "Custom inference pipeline for batch image and video processing",
+        "Live OpenCV visualization of projected 3D bounding boxes",
+        "Camera intrinsics estimation for calibration-free deployment",
+        "Multi-class detection across vehicles, pedestrians, and obstacles"
+      ],
+      technologies: ["Python", "PyTorch", "mmdetection3d", "FCOS3D", "OpenCV"],
+      media: [
+        { type: "image", src: "assets/img/portfolio/3d OD/3d OD.png" },
+        { type: "image", src: "assets/img/portfolio/3d OD/output.jpg" },
+      ],
+      links: []
+    },
+    "Sign Language Recognition": {
+      title: "Sign Language Recognition with CNN",
+      tags: ["Computer Vision", "Real-Time Detection", "Image Classification", "Deep Learning"],
+      overview:
+        "Real-time American Sign Language alphabet and digit recognition system using a custom 2D CNN. Trained on 87,000 ASL images (29 classes) and Sign Language Digits dataset (10 classes).",
+      features: [
+        "Real-time hand gesture classification from live video feed",
+        "4-layer Convolutional Neural Network (16→32→64→128 filters)",
+        "Dual dataset support (alphabets + digits, 39 total classes)",
+        "Data augmentation pipeline for improved generalization",
+        "One-vs-all encoding with CSV-based label mapping"
+      ],
+      technologies: ["Python", "PyTorch", "OpenCV", "Albumentations", "CNN"],
+      media: [
+        { type: "image", src: "assets/img/portfolio/Hand sign/12.jpg" },
+        { type: "image", src: "assets/img/portfolio/Hand sign/18.jpg" },
+        { type: "image", src: "assets/img/portfolio/Hand sign/19.jpg" },
+      ],
+      links: [{title: "More Detail", url: "https://github.com/SabihShah/Hand-Sign-Recognition-paper", primary: true}]
+    },
+    "Email Automation": {
+      title: "Document Parsing & Email Automation",
+      tags: ["Document Parsing", "Email Automation", "Workflow Automation", "RPA"],
+      overview:
+        "An Outlook-integrated automation bot that monitors an inbox for incoming Purchase Order PDFs, extracts structured data via a document-parsing API, and auto-generates Invoices, Pro Forma Invoices, Packing Slips, and Material Certs — then replies to the original email with the completed documents attached.",
+      features: [
+        "Real-time inbox monitoring with automatic PDF attachment detection",
+        "LLM/API-based PDF data extraction (order details, line items, shipping info)",
+        "Auto-fills Excel templates (including grouped textboxes/merged cells) and exports to PDF",
+        "Generates multiple document types per order: Invoice, Pro Forma, Packing Slip, Material Certs",
+        "Auto-reply to sender with generated documents attached",
+        "Retry logic for API calls + processing logs for auditability"
+      ],
+      technologies: ["Python", "win32com (Outlook & Excel COM automation)", "Document Parsing API (RapidAPI)", "pdf2image", "PIL", "Excel/PDF automation"],
+      media: [
+        { type: "image", src: "assets/img/portfolio/Email/image1.png" },
+        { type: "image", src: "assets/img/portfolio/Email/image2.png" },
+      ],
+      links: []
+    },
+    "InPainting": {
+      title: "Inpainting",
+      tags: ["Diffusion Models", "Generative AI", "Semantic Segmentation"],
+      overview:
+        "An AI-powered fashion image editor combining segmentation and diffusion inpainting. Select any region of a photo — clothing, hair, background — and replace it via text prompts, with a Gradio GUI supporting multiple sequential edits in a single run.",
+        features: [
+          "Three interchangeable segmentation+inpainting pipelines (SAM+SD2, SAM2+SDXL, SegFormer+SDXL)",
+          "Clothing-specific segmentation across 18 semantic labels (shirt, hair, pants, shoes, etc.)",
+          "Multi-region edit queue — apply several prompt-guided edits sequentially in one run",
+          "Live mask preview and color-coded segmentation map",
+          "Prompt engineering support (negative prompts, texture/lighting cues) for higher-fidelity results"
+        ],
+        technologies: ['Python', 'PyTorch', 'Segment Anything (SAM & SAM 2)', 'SegFormer', 'Stable Diffusion 2 / SDXL', 'Diffusers', 'Transformers', 'OpenCV'],
+        media: [
+          { type: "image", src: "assets/img/portfolio/inpainting/img2.jpg" },
+          { type: "image", src: "assets/img/portfolio/inpainting/seg-mask.png" },
+          { type: "image", src: "assets/img/portfolio/inpainting/mask.png" },
+          { type: "image", src: "assets/img/portfolio/inpainting/output.png" }
+        ],
+        links: [{title: "View on GitHub", url: "https://github.com/SabihShah/InPainting.git", primary: true}]
+    }
   };
 
   const modal = document.getElementById("project-modal");
