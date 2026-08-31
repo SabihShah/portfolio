@@ -475,21 +475,49 @@
       tags: ["Diffusion Models", "Generative AI", "Semantic Segmentation"],
       overview:
         "An AI-powered fashion image editor combining segmentation and diffusion inpainting. Select any region of a photo — clothing, hair, background — and replace it via text prompts, with a Gradio GUI supporting multiple sequential edits in a single run.",
-        features: [
-          "Three interchangeable segmentation+inpainting pipelines (SAM+SD2, SAM2+SDXL, SegFormer+SDXL)",
-          "Clothing-specific segmentation across 18 semantic labels (shirt, hair, pants, shoes, etc.)",
-          "Multi-region edit queue — apply several prompt-guided edits sequentially in one run",
-          "Live mask preview and color-coded segmentation map",
-          "Prompt engineering support (negative prompts, texture/lighting cues) for higher-fidelity results"
-        ],
-        technologies: ['Python', 'PyTorch', 'Segment Anything (SAM & SAM 2)', 'SegFormer', 'Stable Diffusion 2 / SDXL', 'Diffusers', 'Transformers', 'OpenCV'],
-        media: [
-          { type: "image", src: "assets/img/portfolio/inpainting/img2.jpg" },
-          { type: "image", src: "assets/img/portfolio/inpainting/seg-mask.png" },
-          { type: "image", src: "assets/img/portfolio/inpainting/mask.png" },
-          { type: "image", src: "assets/img/portfolio/inpainting/output.png" }
-        ],
-        links: [{title: "View on GitHub", url: "https://github.com/SabihShah/InPainting.git", primary: true}]
+      features: [
+        "Three interchangeable segmentation+inpainting pipelines (SAM+SD2, SAM2+SDXL, SegFormer+SDXL)",
+        "Clothing-specific segmentation across 18 semantic labels (shirt, hair, pants, shoes, etc.)",
+        "Multi-region edit queue — apply several prompt-guided edits sequentially in one run",
+        "Live mask preview and color-coded segmentation map",
+        "Prompt engineering support (negative prompts, texture/lighting cues) for higher-fidelity results"
+      ],
+      technologies: ['Python', 'PyTorch', 'Segment Anything (SAM & SAM 2)', 'SegFormer', 'Stable Diffusion 2 / SDXL', 'Diffusers', 'Transformers', 'OpenCV'],
+      media: [
+        { type: "image", src: "assets/img/portfolio/inpainting/img2.jpg" },
+        { type: "image", src: "assets/img/portfolio/inpainting/seg-mask.png" },
+        { type: "image", src: "assets/img/portfolio/inpainting/mask.png" },
+        { type: "image", src: "assets/img/portfolio/inpainting/output.png" }
+      ],
+      links: [
+        {title: "View on GitHub", url: "https://github.com/SabihShah/InPainting.git", primary: true},
+        {title: "Colab Demo", url: "https://colab.research.google.com/drive/17fR7KGvX0r4WjuweYIDHtjXDgzfILmhX?usp=sharing", primary: false}
+      ]
+    },
+    "3d-scanner": {
+      title: "Multi-View 3D Object Scanner",
+      tags: ["3D Reconstruction", "Structure from Motion", "Photogrammetry", "Point Cloud Processing", "Computer Vision", "Mesh Generation"],
+      overview:
+      "A full 3D reconstruction pipeline that turns a 360° handheld video of an object into a textured, vertex-colored 3D mesh. Built with COLMAP for structure-from-motion and dense stereo, Open3D for Poisson meshing, and OpenMVS for optional UV texturing — demonstrated end-to-end on a real-world object (a chair).",
+      features: [
+        "Full video-to-mesh pipeline: frame extraction → masking → SfM → dense stereo → fusion → meshing → export",
+        "Automated background masking with rembg (U2Net)",
+        "Interactive point cloud cropping and Poisson surface reconstruction",
+        "Mesh cleanup (duplicate/degenerate face removal, non-manifold edge fixes) for print/texture readiness",
+        "Vertex-color fallback appearance pipeline when UV texturing hits scale limits",
+        "OBJ/STL export for downstream use (3D printing, viewers)",
+        "Extensive documented failure-mode troubleshooting (VRAM limits, OOM kills, fusion tuning)"
+      ],
+      technologies: ["COLMAP (SfM + MVS)", "Open3D", "OpenMVS", "Python", "rembg", "CUDA", "Poisson Surface Reconstruction"],
+      media: [
+        { type: "image", src: "assets/img/portfolio/3d-scanner/image.png" },
+        { type: "image", src: "assets/img/portfolio/3d-scanner/image copy.png" },
+        { type: "image", src: "assets/img/portfolio/3d-scanner/mesh.png" },
+        { type: "video", src: "assets/img/portfolio/3d-scanner/video-1.webm" },
+      ],
+      links: [
+        {title: "View on GitHub", url: "https://github.com/SabihShah/Multi-View-3D-Object-Scanner.git", primary: true}
+      ]
     }
   };
 
