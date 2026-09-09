@@ -518,6 +518,28 @@
       links: [
         {title: "View on GitHub", url: "https://github.com/SabihShah/Multi-View-3D-Object-Scanner.git", primary: true}
       ]
+    },
+    "Face Recognition": {
+      title: "Facial Recognition System",
+      tags: ["Face Recognition", "Vector Search", "Biometric Identification", "Computer Vision", "REST API", "Docker"],
+      overview:
+      "A dockerized face recognition service combining InsightFace for face detection/embedding extraction with Milvus as a vector database for fast similarity search. Includes a REST API for indexing, recognition, and search, plus a CLI and webcam client for managing and querying the face database.",
+      features: [
+        "Real-time face detection and embedding extraction via InsightFace-REST",
+        "Vector similarity search backed by Milvus for scalable face matching",
+        "Full REST API: extract, recognize, search_image, db_list, remove/wipe entries",
+        "CLI tool (manage_db.py) for bulk add/delete/list operations on the face DB",
+        "Webcam client (run.py) for live recognition against the indexed database",
+        "Dockerized deployment with CPU, GPU, and multi-GPU compose configurations"
+      ],
+      technologies: ["Python", "InsightFace", "Milvus", "ONNX Runtime / TensorRT", "Docker", "REST API (FastAPI-based)", "OpenCV"],
+      media: [
+        { type: "image", src: "assets/img/portfolio/face/output-1.jpg" },
+        { type: "video", src: "assets/img/portfolio/face/video.mp4" },
+      ],
+      links: [
+        {title: "View on GitHub", url: "https://github.com/SabihShah/Facial-Recognition.git", primary: true}
+      ]
     }
   };
 
