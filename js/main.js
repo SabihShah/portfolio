@@ -540,6 +540,51 @@
       links: [
         {title: "View on GitHub", url: "https://github.com/SabihShah/Facial-Recognition.git", primary: true}
       ]
+    },
+    "Visual QA": {
+      title: "Visual Question Answering (VQA) System",
+      tags: ["Vision-Language Models", "Visual Question Answering", "Image Captioning", "Multi-modal AI", "Generative AI"],
+      overview:
+      "A unified vision-language system that performs both image captioning and visual question answering by switching input format at inference. Combines a frozen CLIP encoder with a lightweight MLP projection into GPT-2 (ClipCap-style), with an accompanying Qwen2.5-VL-7B inference pipeline for stronger real-world demo results under 8GB VRAM.",
+      features: [
+        "Dual-mode: captioning and VQA handled by a single architecture via prompt/format switching",
+        "Custom ClipCap-style pipeline (CLIP ViT-B/32 frozen → MLP projection → GPT-2 decoder)",
+        "Production-ready inference via Qwen2.5-VL-7B-Instruct with 4-bit quantization for low-VRAM deployment",
+        "Full training pipeline for fine-tuning on custom datasets (Flickr8k-ready)",
+        "Interactive Gradio demo for live caption/VQA testing",
+        "Configurable architecture (YAML-based) with guidance on unfreezing vision layers"
+      ],
+      technologies: ["Python", "PyTorch", "CLIP (ViT-B/32)", "GPT-2", "Qwen2.5-VL-7B-Instruct", "Transformers", "Gradio"],
+      media: [
+        { type: "image", src: "assets/img/portfolio/Visual QA/img-1.png" },
+        { type: "image", src: "assets/img/portfolio/Visual QA/img-2.png" }
+      ],
+      links: [
+        { title: "View on GitHub", url: "https://github.com/SabihShah/Visual-QA.git", primary: true }
+      ]
+    },
+    "Sketch-Translation": {
+      title: "Sketch to Photo Translation",
+      tags: ["Image-to-Image Translation", "Diffusion Models", "Generative AI", "Sketch-to-Image", "LoRA Fine-Tuning"],
+      overview:
+      "Converts hand-drawn or scanned sketches (objects, animals, architecture) into photorealistic images using ControlNet (SoftEdge) conditioning with Stable Diffusion 1.5, with optional LoRA fine-tuning for domains the base model handles poorly.",
+      features: [
+        "Full pipeline: sketch preprocessing → softedge extraction (PidiNet) → ControlNet-guided diffusion generation",
+        "LoRA fine-tuning path for narrow/unfamiliar object domains",
+        "Tuned defaults (conditioning_scale=1.2, 35 steps) validated across multiple object categories (mug, sneaker, watch, backpack)",
+        "Uses photorealism-focused Realistic Vision checkpoint over base SD1.5 for stronger results with zero training",
+        "Documented failure-mode learnings (edge-padding artifacts, thresholding mismatches) baked into default flags",
+        "Low-VRAM LoRA training config (rank/alpha/batch size tunable, batch_size=1 default for 8GB GPUs)"
+      ],
+      technologies: ["Diffusers", "ControlNet (SoftEdge)", "Stable Diffusion", "PEFT (LoRA)", "OpenCV"],
+      media: [
+        { type: "image", src: "assets/img/portfolio/sketch/img.jpg" },
+        { type: "image", src: "assets/img/portfolio/sketch/cup-img.jpg" },
+        { type: "image", src: "assets/img/portfolio/sketch/cup-out.jpg" }
+      ],
+      links: [
+        { title: "View on Github", url: "https://github.com/SabihShah/Sketch-to-Photo.git" }
+      ]
     }
   };
 
