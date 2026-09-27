@@ -645,7 +645,12 @@ section{ position:relative; z-index:1; padding: 130px 0; }
   color: #06070a;
   font-weight: 600;
 }
-.project-card.filtered-out{ display:none; }
+.project-card.filtered-out,
+.project-card.is-hidden{ display:none; }
+
+.projects-toggle-wrap{
+  display:flex; justify-content:center; margin-top: 28px;
+}
 
 /* ---------- Locked / coming-soon project cards ---------- */
 .project-card.is-locked{

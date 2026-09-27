@@ -253,20 +253,55 @@
     });
   });
 
-  /* ---------------- Project category filter ---------------- */
+  /* ---------------- Project category filter + collapsed default view ---------------- */
   const filterPills = document.querySelectorAll(".filter-pill");
-  const projectCards = document.querySelectorAll("#projects-grid .project-card");
+  const projectCards = Array.from(document.querySelectorAll("#projects-grid .project-card"));
+  const projectsToggle = document.getElementById("projects-toggle");
+  const DEFAULT_VISIBLE_PROJECTS = 6;
+  let activeProjectFilter = "all";
+  let projectsExpanded = false;
+
+  function applyProjectVisibility() {
+    const filteredCards = projectCards.filter((card) => {
+      const category = card.getAttribute("data-category");
+      return activeProjectFilter === "all" || category === activeProjectFilter;
+    });
+
+    const visibleLimit = projectsExpanded ? filteredCards.length : Math.min(DEFAULT_VISIBLE_PROJECTS, filteredCards.length);
+
+    projectCards.forEach((card) => {
+      const isMatch = activeProjectFilter === "all" || card.getAttribute("data-category") === activeProjectFilter;
+      const indexInFiltered = filteredCards.indexOf(card);
+      const shouldHide = !isMatch || (indexInFiltered >= visibleLimit && filteredCards.length > DEFAULT_VISIBLE_PROJECTS);
+      card.classList.toggle("filtered-out", !isMatch);
+      card.classList.toggle("is-hidden", shouldHide);
+    });
+
+    if (projectsToggle) {
+      const hasHiddenProjects = filteredCards.length > DEFAULT_VISIBLE_PROJECTS;
+      projectsToggle.hidden = !hasHiddenProjects;
+      projectsToggle.textContent = projectsExpanded ? "Show less" : "Show all projects";
+      projectsToggle.setAttribute("data-expanded", String(projectsExpanded));
+      projectsToggle.setAttribute("aria-expanded", String(projectsExpanded));
+    }
+  }
+
   filterPills.forEach((pill) => {
     pill.addEventListener("click", () => {
       filterPills.forEach((p) => p.classList.remove("active"));
       pill.classList.add("active");
-      const filter = pill.getAttribute("data-filter");
-      projectCards.forEach((card) => {
-        const match = filter === "all" || card.getAttribute("data-category") === filter;
-        card.classList.toggle("filtered-out", !match);
-      });
+      activeProjectFilter = pill.getAttribute("data-filter");
+      projectsExpanded = false;
+      applyProjectVisibility();
     });
   });
+
+  projectsToggle?.addEventListener("click", () => {
+    projectsExpanded = !projectsExpanded;
+    applyProjectVisibility();
+  });
+
+  applyProjectVisibility();
 
   /* ============================================================
      Project data + modal
