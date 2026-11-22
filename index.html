@@ -306,147 +306,180 @@
     <div class="strip-viewport">
       <div class="strip" id="projects-grid">
 
-        <button class="project-card" type="button" data-project="handball" data-category="detection-tracking">
-          <span class="project-media"><img src="assets/img/portfolio/project-1/1.jpg" alt="" loading="lazy" /></span>
-          <span class="project-body">
-            <span class="project-title">Handball Analytics System</span>
-            <span class="project-desc">Multi-object tracking and homography-based analytics for real-time handball performance insight.</span>
-            <span class="project-tags"><span>Computer Vision</span><span>Tracking</span></span>
-          </span>
-        </button>
+        <article class="project-card" data-project="REID" data-category="detection-tracking">
+          <button class="project-open" type="button">
+            <span class="project-media"><img class="fit-contain" src="assets/img/portfolio/reid/reid-1.png" alt="" loading="lazy" /></span>
+            <span class="project-body">
+              <span class="project-title">Cross-Camera Person Re-Identification</span>
+              <span class="project-desc">Keeps one identity for the same person as they move between different camera views.</span>
+              <span class="project-tags"><span>Re-Identification</span><span>Tracking</span></span>
+            </span>
+          </button>
+        </article>
 
-        <button class="project-card" type="button" data-project="pointcloud" data-category="3d-reconstruction">
-          <span class="project-media"><img src="assets/img/portfolio/project-2/2.jpg" alt="" loading="lazy" /></span>
-          <span class="project-body">
-            <span class="project-title">3D Point Cloud Classification &amp; Segmentation</span>
-            <span class="project-desc">Cross-modal contrastive learning for 3D representation using point clouds and images.</span>
-            <span class="project-tags"><span>3D Processing</span><span>Self-Supervised</span></span>
-          </span>
-        </button>
+        <article class="project-card" data-project="3d-scanner" data-category="3d-reconstruction">
+          <button class="project-open" type="button">
+            <span class="project-media"><img src="assets/img/portfolio/3d-scanner/image.png" alt="" loading="lazy" /></span>
+            <span class="project-body">
+              <span class="project-title">Multi-View 3D Object Scanner</span>
+              <span class="project-desc">Turns a 360° handheld video into a textured 3D mesh with photogrammetry.</span>
+              <span class="project-tags"><span>Structure from Motion</span><span>Photogrammetry</span></span>
+            </span>
+          </button>
+        </article>
 
-        <button class="project-card" type="button" data-project="REID" data-category="detection-tracking">
-          <span class="project-media"><img src="assets/img/portfolio/reid/reid_diagram.png" alt="" loading="lazy" /></span>
-          <span class="project-body">
-            <span class="project-title">Cross-Camera Person Re-Identification</span>
-            <span class="project-desc">Keeps one identity for the same person as they move between different camera views.</span>
-            <span class="project-tags"><span>Re-Identification</span><span>Tracking</span></span>
-          </span>
-        </button>
+        <article class="project-card" data-project="4dgs" data-category="3d-reconstruction">
+          <button class="project-open" type="button">
+            <span class="project-media"><img src="assets/img/portfolio/project-4/image-1.jpg" alt="" loading="lazy" /></span>
+            <span class="project-body">
+              <span class="project-title">4DGS Dynamic Scene Reconstruction</span>
+              <span class="project-desc">Real-time photorealistic rendering of dynamic scenes via 4D Gaussian Splatting.</span>
+              <span class="project-tags"><span>Neural Rendering</span><span>Research</span></span>
+            </span>
+          </button>
+        </article>
 
-        <button class="project-card" type="button" data-project="3d-scanner" data-category="3d-reconstruction">
-          <span class="project-media"><img src="assets/img/portfolio/3d-scanner/image.png" alt="" loading="lazy" /></span>
-          <span class="project-body">
-            <span class="project-title">Multi-View 3D Object Scanner</span>
-            <span class="project-desc">Turns a 360° handheld video into a textured 3D mesh with photogrammetry.</span>
-            <span class="project-tags"><span>Structure from Motion</span><span>Photogrammetry</span></span>
-          </span>
-        </button>
+        <article class="project-card" data-project="Face Recognition" data-category="detection-tracking">
+          <button class="project-open" type="button">
+            <span class="project-media"><img src="assets/img/portfolio/face/output-1.jpg" alt="" loading="lazy" /></span>
+            <span class="project-body">
+              <span class="project-title">Facial Recognition</span>
+              <span class="project-desc">Face detection and embedding search with InsightFace and Milvus, served over a REST API.</span>
+              <span class="project-tags"><span>Face Recognition</span><span>Vector Search</span></span>
+            </span>
+          </button>
+        </article>
 
-        <button class="project-card" type="button" data-project="yoga" data-category="pose-gesture">
-          <span class="project-media"><img src="assets/img/portfolio/project-5/5.jpg" alt="" loading="lazy" /></span>
-          <span class="project-body">
-            <span class="project-title">Yoga Pose Estimation &amp; Correction</span>
-            <span class="project-desc">MediaPipe-driven biomechanical analysis with real-time form-correction feedback.</span>
-            <span class="project-tags"><span>Pose Estimation</span><span>Real-Time</span></span>
-          </span>
-        </button>
+        <article class="project-card" data-project="InPainting" data-category="generative-restoration">
+          <button class="project-open" type="button">
+            <span class="project-media"><img src="assets/img/portfolio/inpainting/output.png" alt="" loading="lazy" /></span>
+            <span class="project-body">
+              <span class="project-title">Inpainting</span>
+              <span class="project-desc">Segment any region of a photo and replace it from a text prompt with diffusion models.</span>
+              <span class="project-tags"><span>Diffusion Models</span><span>Segmentation</span></span>
+            </span>
+          </button>
+        </article>
 
-        <button class="project-card" type="button" data-project="4dgs" data-category="3d-reconstruction">
-          <span class="project-media"><img src="assets/img/portfolio/project-4/image-1.jpg" alt="" loading="lazy" /></span>
-          <span class="project-body">
-            <span class="project-title">4DGS Dynamic Scene Reconstruction</span>
-            <span class="project-desc">Real-time photorealistic rendering of dynamic scenes via 4D Gaussian Splatting.</span>
-            <span class="project-tags"><span>Neural Rendering</span><span>Research</span></span>
-          </span>
-        </button>
+        <article class="project-card" data-project="handball" data-category="detection-tracking">
+          <button class="project-open" type="button">
+            <span class="project-media"><img src="assets/img/portfolio/project-1/1.jpg" alt="" loading="lazy" /></span>
+            <span class="project-body">
+              <span class="project-title">Handball Analytics System</span>
+              <span class="project-desc">Multi-object tracking and homography-based analytics for real-time handball performance insight.</span>
+              <span class="project-tags"><span>Computer Vision</span><span>Tracking</span></span>
+            </span>
+          </button>
+        </article>
 
-        <button class="project-card" type="button" data-project="Face Recognition" data-category="detection-tracking">
-          <span class="project-media"><img src="assets/img/portfolio/face/output-1.jpg" alt="" loading="lazy" /></span>
-          <span class="project-body">
-            <span class="project-title">Facial Recognition</span>
-            <span class="project-desc">Face detection and embedding search with InsightFace and Milvus, served over a REST API.</span>
-            <span class="project-tags"><span>Face Recognition</span><span>Vector Search</span></span>
-          </span>
-        </button>
+        <article class="project-card is-extra" data-project="Visual QA" data-category="document-vlm">
+          <button class="project-open" type="button">
+            <span class="project-media"><img src="assets/img/portfolio/Visual QA/img-1.png" alt="" loading="lazy" /></span>
+            <span class="project-body">
+              <span class="project-title">Visual QA &amp; Image Captioning</span>
+              <span class="project-desc">Upload an image and ask questions about it, or get a caption, from one vision-language model.</span>
+              <span class="project-tags"><span>Vision-Language Models</span><span>Multi-modal AI</span></span>
+            </span>
+          </button>
+        </article>
 
-        <button class="project-card" type="button" data-project="InPainting" data-category="generative-restoration">
-          <span class="project-media"><img src="assets/img/portfolio/inpainting/seg-mask.png" alt="" loading="lazy" /></span>
-          <span class="project-body">
-            <span class="project-title">Inpainting</span>
-            <span class="project-desc">Segment any region of a photo and replace it from a text prompt with diffusion models.</span>
-            <span class="project-tags"><span>Diffusion Models</span><span>Segmentation</span></span>
-          </span>
-        </button>
+        <article class="project-card is-extra" data-project="pointcloud" data-category="3d-reconstruction">
+          <button class="project-open" type="button">
+            <span class="project-media"><img src="assets/img/portfolio/project-2/2.jpg" alt="" loading="lazy" /></span>
+            <span class="project-body">
+              <span class="project-title">3D Point Cloud Classification &amp; Segmentation</span>
+              <span class="project-desc">Cross-modal contrastive learning for 3D representation using point clouds and images.</span>
+              <span class="project-tags"><span>3D Processing</span><span>Self-Supervised</span></span>
+            </span>
+          </button>
+        </article>
 
-        <button class="project-card" type="button" data-project="depth" data-category="3d-reconstruction">
-          <span class="project-media"><img src="assets/img/portfolio/project-3/3.jpg" alt="" loading="lazy" /></span>
-          <span class="project-body">
-            <span class="project-title">Monocular Depth Estimation &amp; Point Clouds</span>
-            <span class="project-desc">Single-image depth prediction back-projected into enhanced 3D point clouds.</span>
-            <span class="project-tags"><span>Depth Estimation</span><span>3D Reconstruction</span></span>
-          </span>
-        </button>
+        <article class="project-card is-extra" data-project="yoga" data-category="pose-gesture">
+          <button class="project-open" type="button">
+            <span class="project-media"><img src="assets/img/portfolio/project-5/5.jpg" alt="" loading="lazy" /></span>
+            <span class="project-body">
+              <span class="project-title">Yoga Pose Estimation &amp; Correction</span>
+              <span class="project-desc">MediaPipe-driven biomechanical analysis with real-time form-correction feedback.</span>
+              <span class="project-tags"><span>Pose Estimation</span><span>Real-Time</span></span>
+            </span>
+          </button>
+        </article>
 
-        <button class="project-card" type="button" data-project="3D Object Detection" data-category="detection-tracking">
-          <span class="project-media"><img src="assets/img/portfolio/3d OD/3d OD.png" alt="" loading="lazy" /></span>
-          <span class="project-body">
-            <span class="project-title">3D Object Detection</span>
-            <span class="project-desc">Full 3D bounding boxes from a single RGB camera, without LiDAR.</span>
-            <span class="project-tags"><span>Autonomous Perception</span><span>3D Vision</span></span>
-          </span>
-        </button>
+        <article class="project-card is-extra" data-project="depth" data-category="3d-reconstruction">
+          <button class="project-open" type="button">
+            <span class="project-media"><img src="assets/img/portfolio/project-3/3.jpg" alt="" loading="lazy" /></span>
+            <span class="project-body">
+              <span class="project-title">Monocular Depth Estimation &amp; Point Clouds</span>
+              <span class="project-desc">Single-image depth prediction back-projected into enhanced 3D point clouds.</span>
+              <span class="project-tags"><span>Depth Estimation</span><span>3D Reconstruction</span></span>
+            </span>
+          </button>
+        </article>
 
-        <button class="project-card" type="button" data-project="license" data-category="detection-tracking">
-          <span class="project-media"><img src="assets/img/portfolio/project-6/6.jpeg" alt="" loading="lazy" /></span>
-          <span class="project-body">
-            <span class="project-title">License Plate Detection &amp; Recognition</span>
-            <span class="project-desc">Faster R-CNN and YOLO detection with PaddleOCR text extraction for high-speed vehicles.</span>
-            <span class="project-tags"><span>OCR</span><span>Security</span></span>
-          </span>
-        </button>
+        <article class="project-card is-extra" data-project="3D Object Detection" data-category="detection-tracking">
+          <button class="project-open" type="button">
+            <span class="project-media"><img src="assets/img/portfolio/3d OD/3d OD.png" alt="" loading="lazy" /></span>
+            <span class="project-body">
+              <span class="project-title">3D Object Detection</span>
+              <span class="project-desc">Full 3D bounding boxes from a single RGB camera, without LiDAR.</span>
+              <span class="project-tags"><span>Autonomous Perception</span><span>3D Vision</span></span>
+            </span>
+          </button>
+        </article>
 
-        <button class="project-card" type="button" data-project="Sketch-Translation" data-category="generative-restoration">
-          <span class="project-media"><img src="assets/img/portfolio/sketch/img.jpg" alt="" loading="lazy" /></span>
-          <span class="project-body">
-            <span class="project-title">Sketch-to-Photo Translation</span>
-            <span class="project-desc">ControlNet-guided diffusion that turns hand-drawn sketches into photorealistic images.</span>
-            <span class="project-tags"><span>Diffusion Models</span><span>LoRA Fine-Tuning</span></span>
-          </span>
-        </button>
+        <article class="project-card is-extra" data-project="license" data-category="detection-tracking">
+          <button class="project-open" type="button">
+            <span class="project-media"><img src="assets/img/portfolio/project-6/6.jpeg" alt="" loading="lazy" /></span>
+            <span class="project-body">
+              <span class="project-title">License Plate Detection &amp; Recognition</span>
+              <span class="project-desc">Faster R-CNN and YOLO detection with PaddleOCR text extraction for high-speed vehicles.</span>
+              <span class="project-tags"><span>OCR</span><span>Security</span></span>
+            </span>
+          </button>
+        </article>
 
-        <button class="project-card" type="button" data-project="Sign Language Recognition" data-category="pose-gesture">
-          <span class="project-media"><img src="assets/img/portfolio/Hand sign/12.jpg" alt="" loading="lazy" /></span>
-          <span class="project-body">
-            <span class="project-title">Hand Sign Language Recognition</span>
-            <span class="project-desc">Real-time recognition of ASL letters and digits with a custom CNN.</span>
-            <span class="project-tags"><span>CNN</span><span>Real-Time Detection</span></span>
-          </span>
-        </button>
+        <article class="project-card is-extra" data-project="Sketch-Translation" data-category="generative-restoration">
+          <button class="project-open" type="button">
+            <span class="project-media"><img src="assets/img/portfolio/sketch/img.jpg" alt="" loading="lazy" /></span>
+            <span class="project-body">
+              <span class="project-title">Sketch-to-Photo Translation</span>
+              <span class="project-desc">ControlNet-guided diffusion that turns hand-drawn sketches into photorealistic images.</span>
+              <span class="project-tags"><span>Diffusion Models</span><span>LoRA Fine-Tuning</span></span>
+            </span>
+          </button>
+        </article>
 
-        <button class="project-card" type="button" data-project="Email Automation" data-category="document-vlm">
-          <span class="project-media"><img src="assets/img/portfolio/Email/image1.png" alt="" loading="lazy" /></span>
-          <span class="project-body">
-            <span class="project-title">Document Parsing &amp; Email Automation</span>
-            <span class="project-desc">Reads purchase-order PDFs from an inbox and replies with generated invoices and slips.</span>
-            <span class="project-tags"><span>Document Parsing</span><span>Automation</span></span>
-          </span>
-        </button>
+        <article class="project-card is-extra" data-project="Sign Language Recognition" data-category="pose-gesture">
+          <button class="project-open" type="button">
+            <span class="project-media"><img src="assets/img/portfolio/Hand sign/12.jpg" alt="" loading="lazy" /></span>
+            <span class="project-body">
+              <span class="project-title">Hand Sign Language Recognition</span>
+              <span class="project-desc">Real-time recognition of ASL letters and digits with a custom CNN.</span>
+              <span class="project-tags"><span>CNN</span><span>Real-Time Detection</span></span>
+            </span>
+          </button>
+        </article>
 
-        <button class="project-card" type="button" data-project="Visual QA" data-category="document-vlm">
-          <span class="project-media"><img src="assets/img/portfolio/Visual QA/img-1.png" alt="" loading="lazy" /></span>
-          <span class="project-body">
-            <span class="project-title">Visual QA &amp; Image Captioning</span>
-            <span class="project-desc">Upload an image and ask questions about it, or get a caption, from one vision-language model.</span>
-            <span class="project-tags"><span>Vision-Language Models</span><span>Multi-modal AI</span></span>
-          </span>
-        </button>
+        <article class="project-card is-extra" data-project="Email Automation" data-category="document-vlm">
+          <button class="project-open" type="button">
+            <span class="project-media"><img src="assets/img/portfolio/Email/image1.png" alt="" loading="lazy" /></span>
+            <span class="project-body">
+              <span class="project-title">Document Parsing &amp; Email Automation</span>
+              <span class="project-desc">Reads purchase-order PDFs from an inbox and replies with generated invoices and slips.</span>
+              <span class="project-tags"><span>Document Parsing</span><span>Automation</span></span>
+            </span>
+          </button>
+        </article>
 
       </div>
     </div>
 
-    <div class="container scrubber" aria-hidden="true">
-      <span class="frame-count">Frame <b id="frame-now">01</b> of <span id="frame-total">15</span></span>
-      <span class="scrub-bar"><span class="scrub-fill" id="scrub-fill"></span></span>
+    <div class="container work-foot">
+      <div class="scrubber" aria-hidden="true">
+        <span class="frame-count">Frame <b id="frame-now">01</b> of <span id="frame-total">06</span></span>
+        <span class="scrub-bar"><span class="scrub-fill" id="scrub-fill"></span></span>
+      </div>
+      <button class="btn btn-line btn-sm" id="projects-toggle" type="button" aria-expanded="false">Show all 15 projects</button>
     </div>
   </div>
 </section>
