@@ -1,307 +1,285 @@
 /* ============================================================
    Sabih Shah Portfolio — main.js
-   Vanilla JS: no framework needed for a single-page site.
+   Vanilla JS + GSAP ScrollTrigger + Lenis (all loaded from CDN).
+   Everything degrades: with no JS, no CDN, or reduced motion,
+   the page renders in its final, fully visible state.
    ============================================================ */
 
 (function () {
   "use strict";
 
-  /* ---------------- Loader ---------------- */
-  window.addEventListener("load", () => {
-    const loader = document.getElementById("loader");
-    setTimeout(() => loader && loader.classList.add("done"), 400);
-  });
+  const $ = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const hasGsap = !!(window.gsap && window.ScrollTrigger);
+  const motionOK = hasGsap && !reduceMotion;
+  if (hasGsap) gsap.registerPlugin(ScrollTrigger);
+  const refresh = () => hasGsap && ScrollTrigger.refresh();
 
-  /* ---------------- Scroll progress + nav state ---------------- */
-  const progressBar = document.getElementById("scroll-progress");
-  const navbar = document.getElementById("navbar");
-  const backToTop = document.getElementById("back-to-top");
+  /* ---------------- Smooth scroll (Lenis) ---------------- */
+  let lenis = null;
+  if (motionOK && window.Lenis) {
+    lenis = new Lenis({ lerp: 0.1, smoothWheel: true });
+    lenis.on("scroll", ScrollTrigger.update);
+    gsap.ticker.add((t) => lenis.raf(t * 1000));
+    gsap.ticker.lagSmoothing(0);
+  }
+  function scrollToY(y, immediate) {
+    if (lenis) lenis.scrollTo(y, { immediate: !!immediate });
+    else window.scrollTo({ top: y, behavior: immediate || reduceMotion ? "auto" : "smooth" });
+  }
 
+  /* ---------------- Nav: progress, state, mobile menu ---------------- */
+  const progressBar = $("#scroll-progress");
+  const navbar = $("#navbar");
   function onScroll() {
-    const scrollTop = window.scrollY;
-    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-    const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-    if (progressBar) progressBar.style.width = pct + "%";
-    if (navbar) navbar.classList.toggle("scrolled", scrollTop > 12);
-    if (backToTop) backToTop.classList.toggle("show", scrollTop > 600);
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    if (progressBar) progressBar.style.width = (max > 0 ? (window.scrollY / max) * 100 : 0) + "%";
+    navbar?.classList.toggle("scrolled", window.scrollY > 12);
   }
   document.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
 
-  backToTop?.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+  const burger = $("#burger");
+  const mobileMenu = $("#mobile-menu");
+  function setMenu(open) {
+    burger?.classList.toggle("open", open);
+    mobileMenu?.classList.toggle("open", open);
+    burger?.setAttribute("aria-expanded", String(open));
+    burger?.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+  }
+  burger?.addEventListener("click", () => setMenu(!mobileMenu.classList.contains("open")));
 
-  /* ---------------- Mobile menu ---------------- */
-  const burger = document.getElementById("burger");
-  const mobileMenu = document.getElementById("mobile-menu");
-  burger?.addEventListener("click", () => {
-    burger.classList.toggle("open");
-    mobileMenu.classList.toggle("open");
-  });
-  mobileMenu?.querySelectorAll("a").forEach((a) =>
-    a.addEventListener("click", () => {
-      burger.classList.remove("open");
-      mobileMenu.classList.remove("open");
+  // In-page links: route through Lenis so smooth scroll and pinned sections agree.
+  $$('a[href^="#"]:not(.skip-link)').forEach((a) =>
+    a.addEventListener("click", (e) => {
+      const id = a.getAttribute("href");
+      const target = id.length > 1 && document.querySelector(id);
+      setMenu(false);
+      if (!target || !lenis) return;
+      e.preventDefault();
+      lenis.scrollTo(target, { offset: 0 });
+      history.replaceState(null, "", id);
     })
   );
 
   /* ---------------- Active section highlighting ---------------- */
-  const sections = document.querySelectorAll("section[id]");
-  const navLinks = document.querySelectorAll(".nav-links a, .mobile-menu a");
-
+  const navLinks = $$(".nav-links a, .mobile-menu a");
   const sectionObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const id = entry.target.getAttribute("id");
-          navLinks.forEach((link) => {
-            link.classList.toggle("active", link.getAttribute("href") === "#" + id);
-          });
-        }
+        if (!entry.isIntersecting) return;
+        const id = "#" + entry.target.id;
+        navLinks.forEach((l) => l.classList.toggle("active", l.getAttribute("href") === id));
       });
     },
-    { rootMargin: "-45% 0px -50% 0px", threshold: 0 }
+    { rootMargin: "-45% 0px -50% 0px" }
   );
-  sections.forEach((s) => sectionObserver.observe(s));
+  $$("section[id]").forEach((s) => sectionObserver.observe(s));
 
-  /* ---------------- Reveal-on-scroll ---------------- */
-  const revealObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("in-view");
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.12 }
-  );
-  document.querySelectorAll(".reveal").forEach((el) => revealObserver.observe(el));
-
-  /* stagger children with data-stagger */
-  document.querySelectorAll("[data-stagger]").forEach((group) => {
-    Array.from(group.children).forEach((child, i) => {
-      child.style.transitionDelay = i * 70 + "ms";
-    });
+  /* ============================================================
+     HERO — the page "runs detection" as you scroll
+     ============================================================ */
+  const stage = $(".hero-stage");
+  const portraitImg = $(".hero-portrait img");
+  const boxes = $$(".hero .det").map((el) => {
+    const box = document.createElement("div");
+    box.className = "bbox";
+    box.dataset.cls = el.dataset.cls;
+    box.setAttribute("aria-hidden", "true");
+    box.style.setProperty("--c", `var(--${el.dataset.cls})`);
+    const frame = document.createElement("span");
+    frame.className = "bbox-frame";
+    box.appendChild(frame);
+    const label = document.createElement("span");
+    label.className = "bbox-label";
+    box.appendChild(label);
+    stage.appendChild(box);
+    return { el, box, frame, label, name: el.dataset.label, conf: parseFloat(el.dataset.conf) };
   });
+  const setLabel = (d, p) => (d.label.textContent = `${d.name} ${(d.conf * p).toFixed(2)}`);
 
-  /* frame corner reveal for hover-frame elements on scroll into view (mobile touch affordance) */
-  const frameObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) entry.target.classList.add("is-visible");
+  function placeBoxes() {
+    const sr = stage.getBoundingClientRect();
+    boxes.forEach((d) => {
+      const r = d.el.getBoundingClientRect();
+      const pad = d.el.tagName === "IMG" ? 10 : 4;
+      d.box.style.left = r.left - sr.left - pad + "px";
+      d.box.style.top = r.top - sr.top - pad + "px";
+      d.box.style.width = r.width + pad * 2 + "px";
+      d.box.style.height = r.height + pad * 2 + "px";
+    });
+  }
+  window.addEventListener("resize", placeBoxes);
+  placeBoxes();
+
+  if (!motionOK) {
+    boxes.forEach((d) => setLabel(d, 1));
+    $(".hero-portrait")?.classList.add("detected");
+  } else {
+    const buildDetection = (scrollTrigger) => {
+      const tl = gsap.timeline({ defaults: { ease: "none" }, scrollTrigger });
+      tl.to(".scroll-hint", { opacity: 0, duration: 0.15 }, 0)
+        .fromTo(".scan", { top: 0, opacity: 0 }, { top: "100%", duration: 1.3, ease: "power1.inOut" }, 0)
+        .to(".scan", { opacity: 1, duration: 0.05 }, 0)
+        .to(".scan", { opacity: 0, duration: 0.1 }, 1.3);
+      boxes.forEach((d, i) => {
+        const at = 0.3 + i * 0.35;
+        const p = { v: 0 };
+        setLabel(d, 0);
+        tl.fromTo(d.frame, { clipPath: "inset(0% 100% 100% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.35, ease: "power2.out" }, at)
+          .fromTo(d.label, { scaleX: 0, opacity: 0 }, { scaleX: 1, opacity: 1, duration: 0.15, ease: "power2.out" }, at + 0.1)
+          .to(p, { v: 1, duration: 0.45, onUpdate: () => setLabel(d, p.v) }, at);
       });
-    },
-    { threshold: 0.4 }
-  );
-  document.querySelectorAll(".frame").forEach((el) => frameObserver.observe(el));
-
-  /* ---------------- Hero role rotator ---------------- */
-  const roles = ["Computer Vision Engineer", "AI / Deep Learning Developer", "Research Assistant", "Freelance ML Engineer"];
-  const roleEl = document.getElementById("hero-role-text");
-  if (roleEl) {
-    let i = 0;
-    let char = 0;
-    let deleting = false;
-    const tick = () => {
-      const word = roles[i];
-      if (!deleting) {
-        char++;
-        roleEl.textContent = word.slice(0, char);
-        if (char === word.length) {
-          deleting = true;
-          setTimeout(tick, 1700);
-          return;
-        }
-      } else {
-        char--;
-        roleEl.textContent = word.slice(0, char);
-        if (char === 0) {
-          deleting = false;
-          i = (i + 1) % roles.length;
-        }
-      }
-      setTimeout(tick, deleting ? 30 : 55);
+      tl.fromTo(portraitImg, { filter: "grayscale(1) contrast(1.05)" }, { filter: "grayscale(0) contrast(1)", duration: 0.4 }, 1.0)
+        .fromTo(".readout", { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.25 }, 1.4)
+        .to({}, { duration: 0.3 }); // short hold before the pin releases
+      return tl;
     };
-    tick();
+
+    const mm = gsap.matchMedia();
+    mm.add("(min-width: 861px)", () => {
+      buildDetection({ trigger: stage, start: "top top", end: "+=120%", pin: true, scrub: 0.6, onRefresh: placeBoxes });
+    });
+    mm.add("(max-width: 860px)", () => {
+      // No pin on phones: play the detection once, when the hero is on screen.
+      buildDetection({ trigger: stage, start: "top 80%", toggleActions: "play none none none" }).timeScale(1.4);
+    });
+  }
+
+  /* ---------------- Experience: the timeline draws as you scroll ---------------- */
+  const timelineItems = $$(".timeline-item");
+  if (motionOK) {
+    gsap.fromTo(".timeline-fill", { scaleY: 0 }, {
+      scaleY: 1, ease: "none",
+      scrollTrigger: { trigger: ".timeline", start: "top 65%", end: "bottom 65%", scrub: 0.5 },
+    });
+    timelineItems.forEach((it) =>
+      ScrollTrigger.create({
+        trigger: it, start: "top 65%",
+        onEnter: () => it.classList.add("lit"),
+        onLeaveBack: () => it.classList.remove("lit"),
+      })
+    );
+  } else {
+    timelineItems.forEach((it) => it.classList.add("lit"));
   }
 
   /* ---------------- Copy email ---------------- */
-  document.querySelectorAll(".copy-email").forEach((btn) => {
-    btn.addEventListener("click", (e) => {
-      e.preventDefault();
+  $$(".copy-email").forEach((btn) =>
+    btn.addEventListener("click", () => {
       const email = btn.getAttribute("data-email");
-      navigator.clipboard?.writeText(email).then(() => showToast("Email copied to clipboard"));
-    });
-  });
-
+      if (navigator.clipboard) navigator.clipboard.writeText(email).then(() => showToast("Email address copied"));
+      else showToast(email);
+    })
+  );
+  let toastTimer;
   function showToast(msg) {
-    const toast = document.getElementById("toast");
+    const toast = $("#toast");
     if (!toast) return;
     toast.textContent = msg;
     toast.classList.add("show");
-    setTimeout(() => toast.classList.remove("show"), 2200);
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toast.classList.remove("show"), 2200);
   }
 
-  /* ---------------- Certifications show more ---------------- */
-  const certToggle = document.getElementById("cert-toggle");
+  /* ---------------- Certifications: show all ---------------- */
+  const certToggle = $("#cert-toggle");
   certToggle?.addEventListener("click", () => {
-    // Query by the stable ".cert-extra" class (never removed) rather than
-    // ".cert-hidden" (which gets toggled off/on and would otherwise make
-    // this selector return nothing on the second click).
-    const extraItems = document.querySelectorAll(".cert-extra");
-    const expanding = certToggle.getAttribute("data-expanded") === "false";
-    extraItems.forEach((el) => el.classList.toggle("cert-hidden", !expanding));
-    certToggle.setAttribute("data-expanded", expanding);
-    certToggle.textContent = expanding ? "Show less" : "Show all 15 certifications";
+    const expanding = certToggle.getAttribute("aria-expanded") === "false";
+    $$(".cert-extra").forEach((el) => el.classList.toggle("cert-hidden", !expanding));
+    certToggle.setAttribute("aria-expanded", String(expanding));
+    certToggle.textContent = expanding ? "Show fewer" : "Show all 15";
+    refresh(); // page height changed: re-measure the pinned sections below
   });
 
-  /* ---------------- Skills show all ---------------- */
-  const skillsToggle = document.getElementById("skills-toggle");
-  skillsToggle?.addEventListener("click", () => {
-    const extraItems = document.querySelectorAll(".skill-extra");
-    const expanding = skillsToggle.getAttribute("data-expanded") === "false";
-    extraItems.forEach((el) => el.classList.toggle("skill-hidden", !expanding));
-    skillsToggle.setAttribute("data-expanded", expanding);
-    skillsToggle.textContent = expanding ? "Show less" : "Show all skills";
-  });
+  /* ============================================================
+     PROJECTS — horizontal filmstrip, scrubbed by vertical scroll
+     ============================================================ */
+  const work = $("#work");
+  const pinEl = $(".work-pin");
+  const viewport = $(".strip-viewport");
+  const strip = $("#projects-grid");
+  const cards = $$(".project-card", strip);
+  const frameNow = $("#frame-now");
+  const frameTotal = $("#frame-total");
+  const scrubFill = $("#scrub-fill");
+  const classLabels = {
+    "detection-tracking": "tracking",
+    "3d-reconstruction": "3d",
+    "pose-gesture": "pose",
+    "generative-restoration": "generative",
+    "document-vlm": "vision-language",
+  };
+  cards.forEach((c) => (c.querySelector(".project-media").dataset.clsLabel = classLabels[c.dataset.category] || ""));
 
-  /* ---------------- Mouse-follow glow (desktop only, subtle) ---------------- */
-  if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
-    const glow = document.createElement("div");
-    glow.id = "mouse-glow";
-    glow.style.cssText = `
-      position:fixed; width:420px; height:420px; border-radius:50%;
-      background: radial-gradient(circle, rgba(99,102,241,0.10), transparent 70%);
-      pointer-events:none; z-index:1; will-change: transform;
-      left:0; top:0; transform: translate3d(-500px, -500px, 0);
-    `;
-    document.body.appendChild(glow);
-    // Track the cursor with no CSS transition/easing and no extra rAF
-    // buffering, so the glow sits exactly under the pointer every frame.
-    window.addEventListener("mousemove", (e) => {
-      glow.style.transform = `translate3d(${e.clientX - 210}px, ${e.clientY - 210}px, 0)`;
-    });
+  const visibleCards = () => cards.filter((c) => !c.classList.contains("filtered-out"));
+  const pad2 = (n) => String(n).padStart(2, "0");
+  function updateFrames(p) {
+    const n = visibleCards().length;
+    frameTotal.textContent = pad2(n);
+    frameNow.textContent = pad2(n ? Math.round(p * (n - 1)) + 1 : 0);
+    scrubFill.style.transform = `scaleX(${p})`;
   }
+  const stripDist = () => Math.max(0, strip.scrollWidth - viewport.clientWidth);
+  let stripTween = null;
 
-  /* ---------------- Background canvas: neural node network ---------------- */
-  const canvas = document.getElementById("bg-canvas");
-  if (canvas && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-    const ctx = canvas.getContext("2d");
-    let w, h, nodes;
-    const NODE_COUNT_BASE = 70;
+  if (motionOK) {
+    gsap.matchMedia().add("(min-width: 861px)", () => {
+      stripTween = gsap.to(strip, {
+        x: () => -stripDist(),
+        ease: "none",
+        scrollTrigger: {
+          trigger: pinEl, start: "top top", end: () => "+=" + stripDist(),
+          pin: true, scrub: 0.6, invalidateOnRefresh: true,
+          onUpdate: (self) => updateFrames(self.progress),
+        },
+      });
+      return () => { stripTween = null; };
+    });
 
-    function resize() {
-      w = canvas.width = window.innerWidth;
-      h = canvas.height = Math.min(window.innerHeight * 1.4, 1400);
-      const count = Math.max(28, Math.min(NODE_COUNT_BASE, Math.floor((w * h) / 26000)));
-      nodes = Array.from({ length: count }, () => ({
-        x: Math.random() * w,
-        y: Math.random() * h,
-        vx: (Math.random() - 0.5) * 0.25,
-        vy: (Math.random() - 0.5) * 0.25,
-        r: Math.random() * 1.6 + 0.6,
-      }));
-    }
-    window.addEventListener("resize", resize);
-    resize();
-
-    const maxDist = 150;
-    function draw() {
-      ctx.clearRect(0, 0, w, h);
-      for (let i = 0; i < nodes.length; i++) {
-        const n = nodes[i];
-        n.x += n.vx;
-        n.y += n.vy;
-        if (n.x < 0 || n.x > w) n.vx *= -1;
-        if (n.y < 0 || n.y > h) n.vy *= -1;
-
-        for (let j = i + 1; j < nodes.length; j++) {
-          const o = nodes[j];
-          const dx = n.x - o.x, dy = n.y - o.y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < maxDist) {
-            ctx.strokeStyle = `rgba(99,102,241,${0.14 * (1 - dist / maxDist)})`;
-            ctx.lineWidth = 1;
-            ctx.beginPath();
-            ctx.moveTo(n.x, n.y);
-            ctx.lineTo(o.x, o.y);
-            ctx.stroke();
-          }
-        }
-      }
-      for (const n of nodes) {
-        ctx.beginPath();
-        ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
-        ctx.fillStyle = "rgba(34,211,238,0.55)";
-        ctx.fill();
-      }
-      requestAnimationFrame(draw);
-    }
-    draw();
+    // Keyboard: tabbing to an off-screen card scrolls the page to where that card is in view.
+    strip.addEventListener("focusin", (e) => {
+      const card = e.target.closest(".project-card");
+      if (!card || !stripTween) return;
+      viewport.scrollLeft = 0;
+      const st = stripTween.scrollTrigger;
+      const d = stripDist();
+      const x = Math.min(d, Math.max(0, card.offsetLeft - parseFloat(getComputedStyle(strip).paddingLeft)));
+      scrollToY(st.start + (d ? x / d : 0) * (st.end - st.start), true);
+    });
+  } else {
+    // No pinning: the strip becomes a native horizontal scroller.
+    work.classList.add("no-pin");
+    viewport.addEventListener("scroll", () => {
+      const max = viewport.scrollWidth - viewport.clientWidth;
+      updateFrames(max > 0 ? viewport.scrollLeft / max : 0);
+    }, { passive: true });
   }
+  updateFrames(0);
 
-  /* ---------------- Skill card tilt (subtle) ---------------- */
-  document.querySelectorAll(".project-card:not(.is-locked)").forEach((card) => {
-    card.addEventListener("mousemove", (e) => {
-      const rect = card.getBoundingClientRect();
-      const x = (e.clientX - rect.left) / rect.width - 0.5;
-      const y = (e.clientY - rect.top) / rect.height - 0.5;
-      card.style.transform = `translateY(-8px) rotateX(${(-y * 5).toFixed(2)}deg) rotateY(${(x * 5).toFixed(2)}deg)`;
-    });
-    card.addEventListener("mouseleave", () => {
-      card.style.transform = "";
-    });
-  });
-
-  /* ---------------- Project category filter + collapsed default view ---------------- */
-  const filterPills = document.querySelectorAll(".filter-pill");
-  const projectCards = Array.from(document.querySelectorAll("#projects-grid .project-card"));
-  const projectsToggle = document.getElementById("projects-toggle");
-  const DEFAULT_VISIBLE_PROJECTS = 6;
-  let activeProjectFilter = "all";
-  let projectsExpanded = false;
-
-  function applyProjectVisibility() {
-    const filteredCards = projectCards.filter((card) => {
-      const category = card.getAttribute("data-category");
-      return activeProjectFilter === "all" || category === activeProjectFilter;
-    });
-
-    const visibleLimit = projectsExpanded ? filteredCards.length : Math.min(DEFAULT_VISIBLE_PROJECTS, filteredCards.length);
-
-    projectCards.forEach((card) => {
-      const isMatch = activeProjectFilter === "all" || card.getAttribute("data-category") === activeProjectFilter;
-      const indexInFiltered = filteredCards.indexOf(card);
-      const shouldHide = !isMatch || (indexInFiltered >= visibleLimit && filteredCards.length > DEFAULT_VISIBLE_PROJECTS);
-      card.classList.toggle("filtered-out", !isMatch);
-      card.classList.toggle("is-hidden", shouldHide);
-    });
-
-    if (projectsToggle) {
-      const hasHiddenProjects = filteredCards.length > DEFAULT_VISIBLE_PROJECTS;
-      projectsToggle.hidden = !hasHiddenProjects;
-      projectsToggle.textContent = projectsExpanded ? "Show less" : "Show all projects";
-      projectsToggle.setAttribute("data-expanded", String(projectsExpanded));
-      projectsToggle.setAttribute("aria-expanded", String(projectsExpanded));
-    }
-  }
-
-  filterPills.forEach((pill) => {
+  /* ---------------- Category filter ---------------- */
+  const filterPills = $$(".filter-pill");
+  filterPills.forEach((pill) =>
     pill.addEventListener("click", () => {
-      filterPills.forEach((p) => p.classList.remove("active"));
-      pill.classList.add("active");
-      activeProjectFilter = pill.getAttribute("data-filter");
-      projectsExpanded = false;
-      applyProjectVisibility();
-    });
-  });
+      const f = pill.dataset.filter;
+      filterPills.forEach((p) => {
+        p.classList.toggle("active", p === pill);
+        p.setAttribute("aria-pressed", String(p === pill));
+      });
+      cards.forEach((c) => c.classList.toggle("filtered-out", f !== "all" && c.dataset.category !== f));
+      viewport.scrollLeft = 0;
+      refresh();
+      if (stripTween) scrollToY(stripTween.scrollTrigger.start, true);
+      updateFrames(0);
+      if (motionOK) gsap.fromTo(visibleCards(), { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.4, stagger: 0.04, ease: "power2.out", clearProps: "opacity,transform" });
+    })
+  );
 
-  projectsToggle?.addEventListener("click", () => {
-    projectsExpanded = !projectsExpanded;
-    applyProjectVisibility();
-  });
-
-  applyProjectVisibility();
+  // Layout settles after web fonts and images: re-measure everything once.
+  const remeasure = () => { placeBoxes(); refresh(); };
+  document.fonts?.ready.then(remeasure);
+  window.addEventListener("load", remeasure);
 
   /* ============================================================
      Project data + modal
@@ -623,27 +601,31 @@
     }
   };
 
-  const modal = document.getElementById("project-modal");
-  const modalTitle = modal?.querySelector(".modal-title");
-  const modalTags = modal?.querySelector(".project_tags");
-  const modalOverview = modal?.querySelector(".overview");
-  const modalFeatures = modal?.querySelector(".features_list");
-  const modalTech = modal?.querySelector(".tech_stack");
-  const modalLinks = modal?.querySelector(".project_links");
-  const modalMain = modal?.querySelector(".modal-media-main");
-  const modalThumbs = modal?.querySelector(".modal-thumbs");
+  const modal = $("#project-modal");
+  const modalBox = $(".modal-box", modal);
+  const modalTitle = $(".modal-title", modal);
+  const modalTags = $(".project_tags", modal);
+  const modalOverview = $(".overview", modal);
+  const modalFeatures = $(".features_list", modal);
+  const modalTech = $(".tech_stack", modal);
+  const modalLinks = $(".project_links", modal);
+  const modalMain = $(".modal-media-main", modal);
+  const modalThumbs = $(".modal-thumbs", modal);
+  const closeBtn = $(".modal-close", modal);
+  let lastFocus = null;
+  let closeTimer;
 
   function setMainMedia(item) {
-    if (!modalMain) return;
     modalMain.innerHTML =
       item.type === "video"
         ? `<video src="${item.src}" autoplay loop muted playsinline controls></video>`
-        : `<img src="${item.src}" alt="Project media" loading="lazy" />`;
+        : `<img src="${item.src}" alt="${modalTitle.textContent}" />`;
   }
 
   function openProject(key) {
     const p = projectData[key];
-    if (!p || !modal) return;
+    if (!p) return;
+    clearTimeout(closeTimer);
     modalTitle.textContent = p.title;
     modalTags.innerHTML = p.tags.map((t) => `<span>${t}</span>`).join("");
     modalOverview.textContent = p.overview;
@@ -654,43 +636,57 @@
       .join("");
 
     setMainMedia(p.media[0]);
-    modalThumbs.innerHTML = p.media
-      .map(
-        (m, i) =>
-          `<div class="modal-thumb ${i === 0 ? "active" : ""}" data-i="${i}">${
-            m.type === "video" ? `<video src="${m.src}" muted></video>` : `<img src="${m.src}" alt="" />`
-          }</div>`
-      )
-      .join("");
-    modalThumbs.querySelectorAll(".modal-thumb").forEach((thumb) => {
+    modalThumbs.innerHTML =
+      p.media.length < 2
+        ? ""
+        : p.media
+            .map(
+              (m, i) =>
+                `<button type="button" class="modal-thumb ${i === 0 ? "active" : ""}" data-i="${i}" aria-label="Show ${m.type} ${i + 1} of ${p.media.length}">${
+                  m.type === "video" ? `<video src="${m.src}" muted preload="metadata"></video>` : `<img src="${m.src}" alt="" loading="lazy" />`
+                }</button>`
+            )
+            .join("");
+    $$(".modal-thumb", modalThumbs).forEach((thumb) =>
       thumb.addEventListener("click", () => {
-        modalThumbs.querySelectorAll(".modal-thumb").forEach((t) => t.classList.remove("active"));
-        thumb.classList.add("active");
+        $$(".modal-thumb", modalThumbs).forEach((t) => t.classList.toggle("active", t === thumb));
         setMainMedia(p.media[+thumb.dataset.i]);
-      });
-    });
+      })
+    );
 
-    modal.classList.add("open");
+    lastFocus = document.activeElement;
+    modal.hidden = false;
+    modalBox.scrollTop = 0;
+    requestAnimationFrame(() => modal.classList.add("open"));
+    lenis?.stop();
     document.body.style.overflow = "hidden";
+    closeBtn.focus({ preventScroll: true });
   }
 
   function closeProject() {
+    if (modal.hidden) return;
     modal.classList.remove("open");
+    lenis?.start();
     document.body.style.overflow = "";
-    setTimeout(() => (modalMain.innerHTML = ""), 300);
+    closeTimer = setTimeout(() => {
+      modal.hidden = true;
+      modalMain.innerHTML = "";
+    }, 260);
+    lastFocus?.focus({ preventScroll: true });
   }
 
-  document.querySelectorAll("[data-project]").forEach((el) => {
-    el.addEventListener("click", (e) => {
-      e.preventDefault();
-      openProject(el.getAttribute("data-project"));
-    });
-  });
-  modal?.querySelector(".modal-close")?.addEventListener("click", closeProject);
-  modal?.addEventListener("click", (e) => {
-    if (e.target === modal) closeProject();
-  });
+  cards.forEach((card) => card.addEventListener("click", () => openProject(card.dataset.project)));
+  closeBtn.addEventListener("click", closeProject);
+  modal.addEventListener("click", (e) => { if (e.target === modal) closeProject(); });
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && modal?.classList.contains("open")) closeProject();
+    if (modal.hidden) return;
+    if (e.key === "Escape") closeProject();
+    if (e.key === "Tab") {
+      // keep focus inside the dialog
+      const f = $$("button, a[href], video[controls]", modal).filter((el) => el.offsetParent !== null);
+      const first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
   });
 })();
