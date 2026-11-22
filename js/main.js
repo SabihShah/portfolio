@@ -29,6 +29,36 @@
     else window.scrollTo({ top: y, behavior: immediate || reduceMotion ? "auto" : "smooth" });
   }
 
+  /* ---------------- Theme toggle ----------------
+     The <head> script already set data-theme before paint. Here: the button,
+     remembering an explicit choice, and following live system changes until
+     the visitor picks one themselves. */
+  const root = document.documentElement;
+  const themeBtn = $("#theme-toggle");
+  const themeMeta = $('meta[name="theme-color"]');
+  const systemLight = window.matchMedia("(prefers-color-scheme: light)");
+  let savedTheme = null;
+  try { savedTheme = localStorage.getItem("theme"); } catch (e) {}
+
+  function applyTheme(t) {
+    root.setAttribute("data-theme", t);
+    if (themeMeta) themeMeta.content = t === "dark" ? "#0f1626" : "#eef0ea";
+    const next = t === "dark" ? "Switch to light theme" : "Switch to dark theme";
+    themeBtn?.setAttribute("aria-label", next);
+    themeBtn?.setAttribute("title", next);
+  }
+  applyTheme(root.getAttribute("data-theme") === "light" ? "light" : "dark");
+
+  themeBtn?.addEventListener("click", () => {
+    const t = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+    applyTheme(t);
+    savedTheme = t;
+    try { localStorage.setItem("theme", t); } catch (e) {}
+  });
+  systemLight.addEventListener?.("change", (e) => {
+    if (savedTheme !== "light" && savedTheme !== "dark") applyTheme(e.matches ? "light" : "dark");
+  });
+
   /* ---------------- Nav: progress, state, mobile menu ---------------- */
   const progressBar = $("#scroll-progress");
   const navbar = $("#navbar");
@@ -272,6 +302,11 @@
       const card = e.target.closest(".project-card");
       if (!card || !stripTween) return;
       viewport.scrollLeft = 0;
+      // Keyboard only: a mouse click also focuses the card, and moving the strip
+      // mid-click would make the click land on something else.
+      if (!e.target.matches(":focus-visible")) return;
+      const r = card.getBoundingClientRect();
+      if (r.left >= 0 && r.right <= window.innerWidth) return; // already in view
       const st = stripTween.scrollTrigger;
       const d = stripDist();
       const x = Math.min(d, Math.max(0, card.offsetLeft - parseFloat(getComputedStyle(strip).paddingLeft)));
@@ -588,7 +623,7 @@
       technologies: ["Python", "InsightFace", "Milvus", "ONNX Runtime / TensorRT", "Docker", "REST API (FastAPI-based)", "OpenCV"],
       media: [
         { type: "image", src: "assets/img/portfolio/face/output-1.jpg" },
-        { type: "video", src: "assets/img/portfolio/face/video.mp4" },
+        { type: "video", src: "assets/img/portfolio/face/video-web.mp4" },
       ],
       links: [
         {title: "View on GitHub", url: "https://github.com/SabihShah/Facial-Recognition.git", primary: true}
