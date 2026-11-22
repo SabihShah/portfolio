@@ -213,7 +213,36 @@
   };
   cards.forEach((c) => (c.querySelector(".project-media").dataset.clsLabel = classLabels[c.dataset.category] || ""));
 
-  const visibleCards = () => cards.filter((c) => !c.classList.contains("filtered-out"));
+  const visibleCards = () => cards.filter((c) => !c.classList.contains("filtered-out") && !c.classList.contains("is-hidden"));
+  const projectsToggle = $("#projects-toggle");
+  let activeFilter = "all";
+  let projectsExpanded = false;
+
+  // "All" shows the featured projects first; the rest sit behind "Show all".
+  // A category filter always shows every project in that category.
+  function applyProjectVisibility() {
+    cards.forEach((c) => {
+      const filtered = activeFilter !== "all" && c.dataset.category !== activeFilter;
+      const collapsed = activeFilter === "all" && !projectsExpanded && c.classList.contains("is-extra");
+      c.classList.toggle("filtered-out", filtered);
+      c.classList.toggle("is-hidden", !filtered && collapsed);
+    });
+    if (projectsToggle) {
+      projectsToggle.hidden = activeFilter !== "all";
+      projectsToggle.textContent = projectsExpanded ? "Show featured only" : `Show all ${cards.length} projects`;
+      projectsToggle.setAttribute("aria-expanded", String(projectsExpanded));
+    }
+  }
+  applyProjectVisibility();
+
+  // After the set of visible cards changes: re-measure, optionally jump back to the first card.
+  function afterStripChange(backToStart) {
+    viewport.scrollLeft = 0;
+    refresh();
+    if (backToStart && stripTween) scrollToY(stripTween.scrollTrigger.start, true);
+    updateFrames(stripTween ? stripTween.scrollTrigger.progress : 0);
+    if (motionOK) gsap.fromTo(visibleCards(), { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.4, stagger: 0.04, ease: "power2.out", clearProps: "opacity,transform" });
+  }
   const pad2 = (n) => String(n).padStart(2, "0");
   function updateFrames(p) {
     const n = visibleCards().length;
@@ -267,14 +296,20 @@
         p.classList.toggle("active", p === pill);
         p.setAttribute("aria-pressed", String(p === pill));
       });
-      cards.forEach((c) => c.classList.toggle("filtered-out", f !== "all" && c.dataset.category !== f));
-      viewport.scrollLeft = 0;
-      refresh();
-      if (stripTween) scrollToY(stripTween.scrollTrigger.start, true);
-      updateFrames(0);
-      if (motionOK) gsap.fromTo(visibleCards(), { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.4, stagger: 0.04, ease: "power2.out", clearProps: "opacity,transform" });
+      activeFilter = f;
+      projectsExpanded = false;
+      applyProjectVisibility();
+      afterStripChange(true);
     })
   );
+
+  projectsToggle?.addEventListener("click", () => {
+    projectsExpanded = !projectsExpanded;
+    applyProjectVisibility();
+    // Expanding only adds cards to the right, so the current position stays valid.
+    // Collapsing can leave the page past the shortened strip, so go back to the start.
+    afterStripChange(!projectsExpanded);
+  });
 
   // Layout settles after web fonts and images: re-measure everything once.
   const remeasure = () => { placeBoxes(); refresh(); };
@@ -406,6 +441,7 @@
     },
     REID: {
       title: "Multi-Camera Person Tracking & Re-Identification",
+      metric: "One global ID per person across cameras, 4 tracker backends",
       tags: ["Computer Vision", "Multi-Camera Tracking", "Person Re-ID", "Surveillance"],
       overview:
         "A multi-camera person tracking pipeline that preserves identity across different video streams by combining single-camera tracking with appearance-based cross-camera re-identification. The system assigns a consistent global ID as a person moves between cameras, enabling robust identity continuity in surveillance and analytics scenarios.",
@@ -445,6 +481,7 @@
     },
     "Sign Language Recognition": {
       title: "Sign Language Recognition with CNN",
+      metric: "Trained on 87,000 images across 39 classes",
       tags: ["Computer Vision", "Real-Time Detection", "Image Classification", "Deep Learning"],
       overview:
         "Real-time American Sign Language alphabet and digit recognition system using a custom 2D CNN. Trained on 87,000 ASL images (29 classes) and Sign Language Digits dataset (10 classes).",
@@ -465,6 +502,7 @@
     },
     "Email Automation": {
       title: "Document Parsing & Email Automation",
+      metric: "4 documents generated and sent back per order",
       tags: ["Document Parsing", "Email Automation", "Workflow Automation", "RPA"],
       overview:
         "An Outlook-integrated automation bot that monitors an inbox for incoming Purchase Order PDFs, extracts structured data via a document-parsing API, and auto-generates Invoices, Pro Forma Invoices, Packing Slips, and Material Certs — then replies to the original email with the completed documents attached.",
@@ -485,6 +523,7 @@
     },
     "InPainting": {
       title: "Inpainting",
+      metric: "3 swappable pipelines, 18 clothing labels",
       tags: ["Diffusion Models", "Generative AI", "Semantic Segmentation"],
       overview:
         "An AI-powered fashion image editor combining segmentation and diffusion inpainting. Select any region of a photo — clothing, hair, background — and replace it via text prompts, with a Gradio GUI supporting multiple sequential edits in a single run.",
@@ -509,6 +548,7 @@
     },
     "3d-scanner": {
       title: "Multi-View 3D Object Scanner",
+      metric: "360° handheld video in, textured 3D mesh out",
       tags: ["3D Reconstruction", "Structure from Motion", "Photogrammetry", "Point Cloud Processing", "Computer Vision", "Mesh Generation"],
       overview:
       "A full 3D reconstruction pipeline that turns a 360° handheld video of an object into a textured, vertex-colored 3D mesh. Built with COLMAP for structure-from-motion and dense stereo, Open3D for Poisson meshing, and OpenMVS for optional UV texturing — demonstrated end-to-end on a real-world object (a chair).",
@@ -556,6 +596,7 @@
     },
     "Visual QA": {
       title: "Visual Question Answering (VQA) System",
+      metric: "7B vision-language model running in under 8 GB VRAM",
       tags: ["Vision-Language Models", "Visual Question Answering", "Image Captioning", "Multi-modal AI", "Generative AI"],
       overview:
       "A unified vision-language system that performs both image captioning and visual question answering by switching input format at inference. Combines a frozen CLIP encoder with a lightweight MLP projection into GPT-2 (ClipCap-style), with an accompanying Qwen2.5-VL-7B inference pipeline for stronger real-world demo results under 8GB VRAM.",
@@ -578,6 +619,7 @@
     },
     "Sketch-Translation": {
       title: "Sketch to Photo Translation",
+      metric: "LoRA fine-tuning that fits on an 8 GB GPU",
       tags: ["Image-to-Image Translation", "Diffusion Models", "Generative AI", "Sketch-to-Image", "LoRA Fine-Tuning"],
       overview:
       "Converts hand-drawn or scanned sketches (objects, animals, architecture) into photorealistic images using ControlNet (SoftEdge) conditioning with Stable Diffusion 1.5, with optional LoRA fine-tuning for domains the base model handles poorly.",
@@ -675,7 +717,26 @@
     lastFocus?.focus({ preventScroll: true });
   }
 
-  cards.forEach((card) => card.addEventListener("click", () => openProject(card.dataset.project)));
+  /* Cards: add the key-result line and code/demo links from projectData */
+  const linkLabel = (l) => (/colab\.research/.test(l.url) ? "Colab demo" : /github\.com/.test(l.url) ? "Code on GitHub" : l.title);
+  cards.forEach((card) => {
+    const p = projectData[card.dataset.project];
+    if (!p) return;
+    if (p.metric) {
+      const m = document.createElement("span");
+      m.className = "project-metric";
+      m.textContent = p.metric;
+      card.querySelector(".project-desc").after(m);
+    }
+    const links = document.createElement("div");
+    links.className = "project-links";
+    links.innerHTML = p.links
+      .map((l) => `<a href="${l.url}" target="_blank" rel="noopener">${linkLabel(l)}</a>`)
+      .join("");
+    card.appendChild(links);
+    card.querySelector(".project-open").addEventListener("click", () => openProject(card.dataset.project));
+  });
+  refresh();
   closeBtn.addEventListener("click", closeProject);
   modal.addEventListener("click", (e) => { if (e.target === modal) closeProject(); });
   document.addEventListener("keydown", (e) => {
