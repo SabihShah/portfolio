@@ -29,6 +29,36 @@
     else window.scrollTo({ top: y, behavior: immediate || reduceMotion ? "auto" : "smooth" });
   }
 
+  /* ---------------- Theme toggle ----------------
+     The <head> script already set data-theme before paint. Here: the button,
+     remembering an explicit choice, and following live system changes until
+     the visitor picks one themselves. */
+  const root = document.documentElement;
+  const themeBtn = $("#theme-toggle");
+  const themeMeta = $('meta[name="theme-color"]');
+  const systemLight = window.matchMedia("(prefers-color-scheme: light)");
+  let savedTheme = null;
+  try { savedTheme = localStorage.getItem("theme"); } catch (e) {}
+
+  function applyTheme(t) {
+    root.setAttribute("data-theme", t);
+    if (themeMeta) themeMeta.content = t === "dark" ? "#0f1626" : "#eef0ea";
+    const next = t === "dark" ? "Switch to light theme" : "Switch to dark theme";
+    themeBtn?.setAttribute("aria-label", next);
+    themeBtn?.setAttribute("title", next);
+  }
+  applyTheme(root.getAttribute("data-theme") === "light" ? "light" : "dark");
+
+  themeBtn?.addEventListener("click", () => {
+    const t = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+    applyTheme(t);
+    savedTheme = t;
+    try { localStorage.setItem("theme", t); } catch (e) {}
+  });
+  systemLight.addEventListener?.("change", (e) => {
+    if (savedTheme !== "light" && savedTheme !== "dark") applyTheme(e.matches ? "light" : "dark");
+  });
+
   /* ---------------- Nav: progress, state, mobile menu ---------------- */
   const progressBar = $("#scroll-progress");
   const navbar = $("#navbar");
