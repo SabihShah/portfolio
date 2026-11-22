@@ -23,6 +23,12 @@
   --teal:     #08766a;   /* pose & gesture */
   --amber:    #e8a400;   /* generative */
   --violet:   #6a3fd0;   /* documents & VLMs */
+  --on-label: #ffffff;   /* text on a class-coloured label */
+  --on-amber: #14213d;   /* amber is light in both themes: always dark text */
+  --scrim:    rgba(20, 33, 61, .55);
+  --media-bg: #0b1220;   /* letterbox behind images and video */
+  --lift:     rgba(20, 33, 61, .45);
+  color-scheme: light;
 
   /* Type */
   --font-display: 'Bricolage Grotesque', 'Atkinson Hyperlegible', system-ui, sans-serif;
@@ -41,6 +47,32 @@
   --gutter: clamp(16px, 4vw, 40px);
   --nav-h: 64px;
   --ease-out: cubic-bezier(.2, .8, .2, 1);
+}
+
+/* Dark: the same lab, lights off. Follows the visitor's system setting.
+   Class colours are lifted so boxes keep >=3:1 against the dark surface,
+   and labels switch to dark text so they stay readable on the lighter hues. */
+@media (prefers-color-scheme: dark){
+  :root{
+    --paper:    #0f1626;
+    --paper-2:  #0b111e;
+    --card:     #162036;
+    --ink:      #e8ecf4;
+    --ink-2:    #b3bbcc;
+    --ink-3:    #8a94a9;
+    --rule:     rgba(232, 236, 244, 0.13);
+    --rule-strong: rgba(232, 236, 244, 0.3);
+
+    --magenta:  #ff5ca8;
+    --blue:     #6b8cff;
+    --teal:     #2cc2ae;
+    --amber:    #f2b632;
+    --violet:   #a888ff;
+    --on-label: #0b1220;
+    --scrim:    rgba(3, 6, 14, .72);
+    --lift:     rgba(0, 0, 0, .6);
+    color-scheme: dark;
+  }
 }
 
 /* ---------- Reset ---------- */
@@ -65,7 +97,7 @@ ul, ol{ list-style: none; margin: 0; padding: 0; }
 h1, h2, h3, h4{ margin: 0; font-family: var(--font-display); font-weight: 700; line-height: 1.05; }
 p{ margin: 0; }
 button{ font: inherit; color: inherit; cursor: pointer; background: none; border: 0; padding: 0; }
-::selection{ background: var(--amber); color: var(--ink); }
+::selection{ background: var(--amber); color: var(--on-amber); }
 :focus-visible{ outline: 3px solid var(--blue); outline-offset: 3px; border-radius: 4px; }
 
 @media (prefers-reduced-motion: reduce){
@@ -148,12 +180,12 @@ button{ font: inherit; color: inherit; cursor: pointer; background: none; border
 .bbox-frame{ position: absolute; inset: 0; border: 3px solid var(--c); }
 .bbox-label{
   position: absolute; left: -3px; bottom: 100%;
-  background: var(--c); color: #fff;
+  background: var(--c); color: var(--on-label);
   font-family: var(--font-label); font-size: 0.72rem; font-weight: 500;
   line-height: 1; padding: 6px 8px 5px; white-space: nowrap;
   transform-origin: left bottom;
 }
-.bbox[data-cls="amber"] .bbox-label{ color: var(--ink); }
+.bbox[data-cls="amber"] .bbox-label{ color: var(--on-amber); }
 
 /* ---------- Hero ---------- */
 .hero{ position: relative; }
@@ -200,7 +232,7 @@ button{ font: inherit; color: inherit; cursor: pointer; background: none; border
 
 .scan{
   position: absolute; left: 0; right: 0; top: 0; height: 2px; z-index: 4;
-  background: var(--magenta); box-shadow: 0 0 0 1px rgba(209, 22, 111, .15), 0 0 24px 4px rgba(209, 22, 111, .35);
+  background: var(--magenta); box-shadow: 0 0 0 1px color-mix(in srgb, var(--magenta) 15%, transparent), 0 0 24px 4px color-mix(in srgb, var(--magenta) 35%, transparent);
   opacity: 0; pointer-events: none;
 }
 .scroll-hint{
@@ -348,7 +380,7 @@ button{ font: inherit; color: inherit; cursor: pointer; background: none; border
   background: var(--paper);
 }
 .project-media img{ width: 100%; height: 100%; object-fit: cover; transition: transform .6s var(--ease-out); }
-.project-media img.fit-contain{ object-fit: contain; background: #000; }
+.project-media img.fit-contain{ object-fit: contain; background: var(--media-bg); }
 .project-body{ padding-bottom: 16px; }
 /* hover: the card gets "detected" — a box draws around the image, the class label drops in */
 .project-media::after{
@@ -357,16 +389,16 @@ button{ font: inherit; color: inherit; cursor: pointer; background: none; border
 }
 .project-media::before{
   content: attr(data-cls-label); position: absolute; left: 10px; top: 10px; z-index: 1;
-  background: var(--c); color: #fff; font-family: var(--font-label); font-size: 0.7rem; line-height: 1;
+  background: var(--c); color: var(--on-label); font-family: var(--font-label); font-size: 0.7rem; line-height: 1;
   padding: 6px 8px 5px; transform: translateY(-4px); opacity: 0; transition: opacity .25s .15s, transform .25s .15s var(--ease-out);
 }
-.project-card[data-category="generative-restoration"] .project-media::before{ color: var(--ink); }
+.project-card[data-category="generative-restoration"] .project-media::before{ color: var(--on-amber); }
 .project-card:hover .project-media::after,
 .project-card:focus-within .project-media::after{ clip-path: inset(0 0 0 0); }
 .project-card:hover .project-media::before,
 .project-card:focus-within .project-media::before{ opacity: 1; transform: none; }
 .project-card:hover .project-media img{ transform: scale(1.04); }
-.project-card:hover{ box-shadow: 0 0 0 1.5px var(--c), 0 24px 48px -28px rgba(20, 33, 61, .45); }
+.project-card:hover{ box-shadow: 0 0 0 1.5px var(--c), 0 24px 48px -28px var(--lift); }
 
 .project-body{ display: flex; flex-direction: column; gap: 10px; padding: 20px 22px 22px; flex: 1; }
 .project-title{
@@ -430,7 +462,7 @@ footer{ border-top: 1px solid var(--rule); padding: 28px 0; }
 /* ---------- Project modal ---------- */
 .modal-overlay{
   position: fixed; inset: 0; z-index: 250; display: grid; place-items: center; padding: 24px;
-  background: rgba(20, 33, 61, .55); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+  background: var(--scrim); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
   opacity: 0; transition: opacity .25s;
 }
 .modal-overlay[hidden]{ display: none; }
@@ -448,7 +480,7 @@ footer{ border-top: 1px solid var(--rule); padding: 28px 0; }
   background: var(--ink); color: var(--paper); font-size: 1.6rem; line-height: 1;
 }
 .modal-media{ padding: 20px; display: grid; gap: 12px; align-content: start; align-self: start; position: sticky; top: 0; }
-.modal-media-main{ aspect-ratio: 4 / 3; background: var(--ink); border-radius: 6px; overflow: hidden; }
+.modal-media-main{ aspect-ratio: 4 / 3; background: var(--media-bg); border-radius: 6px; overflow: hidden; }
 .modal-media-main img, .modal-media-main video{ width: 100%; height: 100%; object-fit: contain; }
 .modal-thumbs{ display: flex; gap: 8px; flex-wrap: wrap; }
 .modal-thumb{

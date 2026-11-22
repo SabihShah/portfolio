@@ -272,6 +272,11 @@
       const card = e.target.closest(".project-card");
       if (!card || !stripTween) return;
       viewport.scrollLeft = 0;
+      // Keyboard only: a mouse click also focuses the card, and moving the strip
+      // mid-click would make the click land on something else.
+      if (!e.target.matches(":focus-visible")) return;
+      const r = card.getBoundingClientRect();
+      if (r.left >= 0 && r.right <= window.innerWidth) return; // already in view
       const st = stripTween.scrollTrigger;
       const d = stripDist();
       const x = Math.min(d, Math.max(0, card.offsetLeft - parseFloat(getComputedStyle(strip).paddingLeft)));
@@ -588,7 +593,7 @@
       technologies: ["Python", "InsightFace", "Milvus", "ONNX Runtime / TensorRT", "Docker", "REST API (FastAPI-based)", "OpenCV"],
       media: [
         { type: "image", src: "assets/img/portfolio/face/output-1.jpg" },
-        { type: "video", src: "assets/img/portfolio/face/video.mp4" },
+        { type: "video", src: "assets/img/portfolio/face/video-web.mp4" },
       ],
       links: [
         {title: "View on GitHub", url: "https://github.com/SabihShah/Facial-Recognition.git", primary: true}
